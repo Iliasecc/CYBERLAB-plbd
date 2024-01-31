@@ -1,0 +1,142 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    padding: 15px;
+    text-align: center;
+    color: white;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.dashboard-buttons button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dashboard-buttons button:nth-child(1) {
+    background-color: #3498db; /* Bleu */
+    color: white;
+}
+
+.dashboard-buttons button:nth-child(2) {
+    background-color:#9b59b6; /* Violet */
+    color: white;
+}
+
+.dashboard-buttons button:nth-child(3) {
+    background-color: #2ecc71; /* Vert */
+    color: white;
+}
+
+.dashboard-buttons button:nth-child(4) {
+    background-color: #f39c12; /* Jaune */
+    color: white;
+}
+
+.dashboard-buttons button:nth-child(5) {
+    background-color: #e74c3c; /* Rouge */
+    color: white;
+}
+#experiences { /* Pour le choix d'expérience */
+    padding: 12px 24px; /* Augmentation de la taille */
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #000000; /* Couleur turquoise, changez selon vos préférences */
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+section {
+    width: 100%; /* La section occupe toute la largeur disponible */
+    margin-bottom: 20px;
+}
+
+.simulation-section, .results-section {
+    width: 49%; /* Les deux sections occupent 49% chacune pour être côte à côte */
+}
+
+.video-section {
+    width: 80%; /* La vidéo occupe toute la largeur en bas */
+}
+
+iframe, img {
+    width: 100%;
+    border: 1px solid #421717;
+    border-radius: 4px;
+    padding: 5px;
+}
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+#chatbot-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.chatbot-popup {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    border: 1px solid #0e0d0d;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.chatbot-header {
+    background-color: #4CAF50;
+    color: rgb(17, 15, 15);
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.chatbot-content {
+    padding: 10px;
+}
+
+#chat-messages {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+#user-input {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: rgb(14, 13, 13);
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Ajoutez plus de styles selon vos besoins */
