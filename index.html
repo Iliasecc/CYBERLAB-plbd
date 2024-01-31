@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CyberLab Interface</title>
+    
+
+</head>
+<body>
+    <header>
+        <div class="dashboard">
+            <h1 id="user-info">Nom Prénom - Dashboard</h1>
+            <div class="dashboard-buttons">
+                <button onclick="goToDashboard()">Accueil</button>
+                <button onclick="viewProfile()">Profil</button>
+                <button onclick="downloadResults()">Télécharger Résultats</button>
+                <button onclick="submitReport()">Déposer Compte Rendu</button>
+                <button onclick="logout()">Se Déconnecter</button>
+            </div>
+            <select id="experiences" onchange="changeExperience()">
+                <option value="exp1">Expérience 1</option>
+                <option value="exp2">Expérience 2</option>
+                <option value="exp3">Expérience 3</option> <!-- Ajout de la troisième expérience -->
+                <!-- Ajoutez d'autres expériences ici -->
+            </select>
+        </div>
+    </header>
+    
+
+    <main>
+        <section class="simulation-section">
+            <p>Zone de simulation de l'expérience</p> 
+            <iframe id="simulationFrame" width="100%" height="200" src="" frameborder="0" allowfullscreen></iframe>
+        </section>
+
+        <section class="results-section">
+            <p>Zone pour afficher les résultats </p> 
+            <div id="liveResults">
+                <iframe id="resultsFrame" width="100%" height="200" src="" frameborder="0" allowfullscreen></iframe>
+                <!-- Les résultats seront affichés ici -->
+            </div>
+        </section>
+
+        <section class="video-section">
+            <p>Zone pour le retour vidéo </p>
+            <iframe id="videoFrame" width="100%" height="300" src="" frameborder="0" allowfullscreen></iframe>
+        </section>
+
+        <div class="chatbot-container">
+            
+            <img src="c:\Users\Lenovo\Downloads\8665664_robot_robotics_icon.png" id="chatbot-icon" onclick="toggleChatbot()" alt="Robot Icon">
+            <div id="chatbot-popup" class="chatbot-popup">
+                <div class="chatbot-header">
+                    <span onclick="toggleChatbot()" class="close">&times;</span>
+                    Chatbot
+                </div>
+                <div class="chatbot-content">
+                    <!-- Ajoutez ici le contenu du chatbot -->
+                    <div id="chat-messages"></div>
+                    <input type="text" id="user-input" placeholder="Posez votre question...">
+                    <button onclick="sendMessage()">Envoyer</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
