@@ -1,6 +1,17 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
     margin: 0;
+    overflow: hidden;
+}
+
+html, body, main {
+    height: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 header {
@@ -62,7 +73,7 @@ header {
 main {
     display: flex;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 10px;
 }
 
 section {
@@ -70,18 +81,21 @@ section {
     margin-bottom: 20px;
 }
 
-.simulation-section, .results-section {
-    width: 49%; /* Les deux sections occupent 49% chacune pour être côte à côte */
+.simulation-section {
+    width: 15cm  ; /* Les deux sections occupent 49% chacune pour être côte à côte */
+}
+ .results-section {
+    width: 15cm; /* Les deux sections occupent 49% chacune pour être côte à côte */
+}
+.video-section {
+    width: 20cm; /* La vidéo occupe toute la largeur en bas */
 }
 
-.video-section {
-    width: 80%; /* La vidéo occupe toute la largeur en bas */
-}
 
 iframe, img {
-    width: 100%;
-    border: 1px solid #421717;
-    border-radius: 4px;
+    width: 94%;
+    border: 0.00001cm solid #421717;
+    border-radius: 2px;
     padding: 5px;
 }
 .chatbot-container {
@@ -92,15 +106,15 @@ iframe, img {
 }
 
 #chatbot-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 20px;
     cursor: pointer;
 }
 
 .chatbot-popup {
     display: none;
     position: fixed;
-    bottom: 80px;
+    bottom: 50px;
     right: 20px;
     border: 1px solid #0e0d0d;
     width: 300px;
