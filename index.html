@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <title>CyberLab Interface</title>
     
 
@@ -32,7 +32,7 @@
     <main>
         <section class="simulation-section">
             <p>Zone de simulation de l'expérience</p> 
-            <iframe id="simulationFrame" width="100%" height="200" src="" frameborder="0" allowfullscreen></iframe>
+            <iframe id="simulationFrame" width="100%" height="150" src="" frameborder="0" allowfullscreen></iframe>
         </section>
 
         <section class="results-section">
@@ -44,13 +44,14 @@
         </section>
 
         <section class="video-section">
-            <p>Zone pour le retour vidéo </p>
+            <button onclick="startLiveVideo()">Lancer la vidéo en direct</button>
             <iframe id="videoFrame" width="100%" height="300" src="" frameborder="0" allowfullscreen></iframe>
+            <video id="liveVideo" width="100%" height="200" autoplay playsinline></video>
         </section>
-
+        
         <div class="chatbot-container">
             
-            <img src="https://scx2.b-cdn.net/gfx/news/2019/3-robot.jpg" id="chatbot-icon" onclick="toggleChatbot()" alt="Robot Icon" style="width: 150px; height: 150px; cursor: pointer; border: 2px solid white;">
+            <img src="https://scx2.b-cdn.net/gfx/news/2019/3-robot.jpg" id="chatbot-icon" onclick="toggleChatbot()" alt="Robot Icon" style="width: 120px; height: 150px; cursor: pointer; border: 0px solid rgb(245, 242, 242);">
             <div id="chatbot-popup" class="chatbot-popup">
                 <div class="chatbot-header">
                     <span onclick="toggleChatbot()" class="close">&times;</span>
@@ -69,7 +70,6 @@
     <script src="script.js"></script>
 </body>
 </html>
-
 
 
 
