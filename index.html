@@ -16,17 +16,24 @@
     <header class="bg-dark text-white p-3">
         <div class="container-fluid">
             <div class="row align-items-center">
+                <!-- User Info -->
                 <div class="col-auto">
                     <h1 id="user-info">Nom Prénom - Dashboard</h1>
                 </div>
+                <!-- Hamburger Menu -->
                 <div class="col-auto">
+                    <button class="btn btn-outline-light d-lg-none" onclick="toggleHamburgerMenu()">
+                        ☰ Menu
+                    </button>
+                </div>
+                <!-- Dashboard Buttons -->
+                <div class="col-auto d-none d-lg-flex">
                     <div class="dashboard-buttons">
                         <button class="btn btn-outline-light" onclick="goToDashboard()">Accueil 🏠</button>
                         <button class="btn btn-outline-light" onclick="viewProfile()">Profil 👤</button>
                         <button class="btn btn-outline-light" onclick="downloadResults()">Télécharger Résultats 📊</button>
                         <button class="btn btn-outline-light" onclick="submitReport()">Déposer Compte Rendu 📝</button>
                         <button class="btn btn-outline-light" onclick="logout()">Se Déconnecter 🚪</button>
-                        
                     </div>
                 </div>
                 <div class="col-auto">
@@ -36,6 +43,16 @@
                         <option value="exp3">Expérience 3 🧪</option>
                     </select>
                 </div>
+            </div>
+        </div>
+        <!-- Hamburger Menu for Small Screens -->
+        <div id="hamburger-menu" class="d-lg-none">
+            <div class="dashboard-buttons">
+                <button class="btn btn-outline-light" onclick="goToDashboard()">Accueil 🏠</button>
+                <button class="btn btn-outline-light" onclick="viewProfile()">Profil 👤</button>
+                <button class="btn btn-outline-light" onclick="downloadResults()">Télécharger Résultats 📊</button>
+                <button class="btn btn-outline-light" onclick="submitReport()">Déposer Compte Rendu 📝</button>
+                <button class="btn btn-outline-light" onclick="logout()">Se Déconnecter 🚪</button>
             </div>
         </div>
     </header>
