@@ -56,8 +56,8 @@ main {
     font-size: 14px;
     cursor: pointer;
     text-align: center;
-    background-color: #111111;
-    color: rgb(253, 249, 249);
+    background-color: #11111115;
+    color: rgb(64, 187, 181);
 }
 
 iframe, img {
@@ -114,13 +114,7 @@ iframe, img {
     padding: 8px;
 }
 
-button {
-    background-color: #4CAF50;
-    color: rgb(14, 13, 13);
-    padding: 8px;
-    border: none;
-    cursor: pointer;
-}
+
 .video-section {
     position: relative;
 }
@@ -133,17 +127,3 @@ button {
     border: 1px solid #ccc; /* Ajout d'une bordure fine */
 }
 
-#toggleVideoSize {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-#toggleVideoSize:hover {
-    background-color: #2980b9;
-}
