@@ -7,13 +7,20 @@ main {
     padding: 1px ;
     
 }
-
-
-.dashboard {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Ajoutez ces styles pour gérer l'affichage du hamburger menu */
+#hamburger-menu {
+    display: none;
+    background-color: #343a40;
+    padding: 10px;
 }
+
+#hamburger-menu .dashboard-buttons button {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+
+
 
 .dashboard-buttons {
     display: flex;
@@ -127,3 +134,17 @@ iframe, img {
     border: 1px solid #ccc; /* Ajout d'une bordure fine */
 }
 
+#toggleVideoSize {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#toggleVideoSize:hover {
+    background-color: #2980b9;
+}
