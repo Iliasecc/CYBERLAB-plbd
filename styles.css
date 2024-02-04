@@ -1,14 +1,13 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
+    overflow: auto;
+}
+main {
+    
+    padding: 1px ;
+    
 }
 
-header {
-    background-color: #4CAF50;
-    padding: 15px;
-    text-align: center;
-    color: white;
-}
 
 .dashboard {
     display: flex;
@@ -19,6 +18,7 @@ header {
 .dashboard-buttons {
     display: flex;
     gap: 10px;
+    justify-content: center;
 }
 
 .dashboard-buttons button {
@@ -26,7 +26,6 @@ header {
     font-size: 14px;
     cursor: pointer;
 }
-
 .dashboard-buttons button:nth-child(1) {
     background-color: #3498db; /* Bleu */
     color: white;
@@ -51,39 +50,23 @@ header {
     background-color: #e74c3c; /* Rouge */
     color: white;
 }
-#experiences { /* Pour le choix d'expérience */
-    padding: 12px 24px; /* Augmentation de la taille */
+
+#experiences {
+    padding: 5px 25px 6px 10px;
     font-size: 14px;
     cursor: pointer;
-    background-color: #000000; /* Couleur turquoise, changez selon vos préférences */
-    color: white;
-}
-
-main {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-}
-
-section {
-    width: 100%; /* La section occupe toute la largeur disponible */
-    margin-bottom: 20px;
-}
-
-.simulation-section, .results-section {
-    width: 49%; /* Les deux sections occupent 49% chacune pour être côte à côte */
-}
-
-.video-section {
-    width: 80%; /* La vidéo occupe toute la largeur en bas */
+    text-align: center;
+    background-color: #111111;
+    color: rgb(253, 249, 249);
 }
 
 iframe, img {
     width: 100%;
-    border: 1px solid #421717;
-    border-radius: 4px;
+    border: 0.00001cm solid #421717;
+    border-radius: 2px;
     padding: 5px;
 }
+
 .chatbot-container {
     position: fixed;
     bottom: 20px;
@@ -92,15 +75,15 @@ iframe, img {
 }
 
 #chatbot-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 20px;
     cursor: pointer;
 }
 
 .chatbot-popup {
     display: none;
     position: fixed;
-    bottom: 80px;
+    bottom: 50px;
     right: 20px;
     border: 1px solid #0e0d0d;
     width: 300px;
@@ -138,5 +121,29 @@ button {
     border: none;
     cursor: pointer;
 }
+.video-section {
+    position: relative;
+}
 
-/* Ajoutez plus de styles selon vos besoins */
+.video-container {
+    position: relative;
+    width:  100%;
+    height: 220px;
+    overflow: hidden;
+    border: 1px solid #ccc; /* Ajout d'une bordure fine */
+}
+
+#toggleVideoSize {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#toggleVideoSize:hover {
+    background-color: #2980b9;
+}
