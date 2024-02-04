@@ -1,74 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>CyberLab Interface</title>
-    
-
 </head>
+
 <body>
-    <header>
-        <div class="dashboard">
-            <h1 id="user-info">Nom Prénom - Dashboard</h1>
-            <div class="dashboard-buttons">
-                <button onclick="goToDashboard()">Accueil</button>
-                <button onclick="viewProfile()">Profil</button>
-                <button onclick="downloadResults()">Télécharger Résultats</button>
-                <button onclick="submitReport()">Déposer Compte Rendu</button>
-                <button onclick="logout()">Se Déconnecter</button>
+    <!-- Header -->
+    <header class="bg-dark text-white p-3">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-auto">
+                    <h1 id="user-info">Nom Prénom - Dashboard</h1>
+                </div>
+                <div class="col-auto">
+                    <div class="dashboard-buttons">
+                        <button class="btn btn-outline-light" onclick="goToDashboard()">Accueil</button>
+                        <button class="btn btn-outline-light" onclick="viewProfile()">Profil</button>
+                        <button class="btn btn-outline-light" onclick="downloadResults()">Télécharger Résultats</button>
+                        <button class="btn btn-outline-light" onclick="submitReport()">Déposer Compte Rendu</button>
+                        <button class="btn btn-outline-light" onclick="logout()">Se Déconnecter</button>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <select class="form-select" id="experiences" onchange="changeExperience()">
+                        <option value="exp1">Expérience 1</option>
+                        <option value="exp2">Expérience 2</option>
+                        <option value="exp3">Expérience 3</option>
+                    </select>
+                </div>
             </div>
-            <select id="experiences" onchange="changeExperience()">
-                <option value="exp1">Expérience 1</option>
-                <option value="exp2">Expérience 2</option>
-                <option value="exp3">Expérience 3</option> <!-- Ajout de la troisième expérience -->
-                <!-- Ajoutez d'autres expériences ici -->
-            </select>
         </div>
     </header>
-    
 
-    <main>
-        <section class="simulation-section">
-            <p>Zone de simulation de l'expérience</p> 
-            <iframe id="simulationFrame" width="100%" height="200" src="" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="results-section">
-            <p>Zone pour afficher les résultats </p> 
-            <div id="liveResults">
-                <iframe id="resultsFrame" width="100%" height="200" src="" frameborder="0" allowfullscreen></iframe>
-                <!-- Les résultats seront affichés ici -->
+    <!-- Main Content -->
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- Simulation Section -->
+                <section class="simulation-section">
+                    <p>Zone de simulation de l'expérience</p>
+                    <iframe id="simulationFrame" width="100%" height="200" src="" frameborder="0" allowfullscreen></iframe>
+                </section>
             </div>
-        </section>
-
-        <section class="video-section">
-            <p>Zone pour le retour vidéo </p>
-            <iframe id="videoFrame" width="100%" height="300" src="" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <div class="chatbot-container">
+            <div class="col-lg-6">
+                <!-- Video Section -->
+                <section class="video-section">
+                    <button class="btn btn-primary" onclick="startLiveVideo()">Lancer la vidéo en direct &#128072;</button>
+                    <button class="toggleVideoSize" onclick="toggleVideoSize()">&#128269;</button>
+                    <div class="video-container">
+                        <video id="liveVideo" width="100%" height="200" autoplay playsinline></video>
+                    </div>
+                </section>
+            </div>
             
-            <img src="c:\Users\Lenovo\Downloads\8665664_robot_robotics_icon.png" id="chatbot-icon" onclick="toggleChatbot()" alt="Robot Icon">
+            
+            <div class="row mt-3">
+                <div class="col-lg-6 ">
+                    <!-- Results Section -->
+                    <section class="results-section">
+                        <p>Zone pour afficher les résultats</p>
+                        <div id="liveResults">
+                            <iframe id="resultsFrame" width="100%" height="200" src="" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </section>
+                </div>
+            </div>    
+        </div>
+    
+        <div class="chatbot-container">
+            <!-- Chatbot Section -->
+            <img src="https://scx2.b-cdn.net/gfx/news/2019/3-robot.jpg" id="chatbot-icon" onclick="toggleChatbot()" alt="Robot Icon" style="width: 120px; height: 150px; cursor: pointer; border: 0px solid rgb(245, 242, 242);">
             <div id="chatbot-popup" class="chatbot-popup">
                 <div class="chatbot-header">
                     <span onclick="toggleChatbot()" class="close">&times;</span>
                     Chatbot
                 </div>
                 <div class="chatbot-content">
-                    <!-- Ajoutez ici le contenu du chatbot -->
                     <div id="chat-messages"></div>
-                    <input type="text" id="user-input" placeholder="Posez votre question...">
-                    <button onclick="sendMessage()">Envoyer</button>
+                    <input class="form-control" type="text" id="user-input" placeholder="Posez votre question...">
+                    <button class="btn btn-primary" onclick="sendMessage()">Envoyer</button>
                 </div>
             </div>
         </div>
     </main>
+    
+    
+    
+        
+    
+    
 
     <script src="script.js"></script>
 </body>
+
 </html>
-
-
-
