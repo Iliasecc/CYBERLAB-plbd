@@ -14,49 +14,31 @@
 
 <body>
     <!-- Header -->
-    <header class="bg-dark text-white p-3">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <!-- User Info -->
-                <div class="col-auto">
-                    <h1 id="user-info">Nom Prénom - Dashboard</h1>
-                </div>
-                <!-- Hamburger Menu -->
-                <div class="col-auto">
-                    <button class="btn btn-outline-light d-lg-none" onclick="toggleHamburgerMenu()">
-                        ☰ Menu
-                    </button>
-                </div>
-                <!-- Dashboard Buttons -->
-                <div class="col-auto d-none d-lg-flex">
-                    <div class="dashboard-buttons">
-                        <button class="btn btn-outline-light" onclick="goToDashboard()">Accueil 🏠</button>
-                        <button class="btn btn-outline-light" onclick="viewProfile()">Profil 👤</button>
-                        <button class="btn btn-outline-light" onclick="downloadResults()">Télécharger Résultats 📊</button>
-                        <button class="btn btn-outline-light" onclick="submitReport()">Déposer Compte Rendu 📝</button>
-                        <button class="btn btn-outline-light" onclick="logout()">Se Déconnecter 🚪</button>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <select class="form-select" id="experiences" onchange="changeExperience()">
-                        <option value="exp1">Expérience 1 🧪</option>
-                        <option value="exp2">Expérience 2 🧪</option>
-                        <option value="exp3">Expérience 3 🧪</option>
-                    </select>
-                </div>
-            </div>
+    <nav>
+        <div class="logo" style="display: flex; align-items: center;">
+            <span style="color: #01939c; font-size: 26px; font-weight: bold; letter-spacing: 1px; margin-left: 20px;">CYBERLAB</span>
         </div>
-        <!-- Hamburger Menu for Small Screens -->
-        <div id="hamburger-menu" class="d-lg-none">
-            <div class="dashboard-buttons">
-                <button class="btn btn-outline-light" onclick="goToDashboard()">Accueil 🏠</button>
-                <button class="btn btn-outline-light" onclick="viewProfile()">Profil 👤</button>
-                <button class="btn btn-outline-light" onclick="downloadResults()">Télécharger Résultats 📊</button>
-                <button class="btn btn-outline-light" onclick="submitReport()">Déposer Compte Rendu 📝</button>
-                <button class="btn btn-outline-light" onclick="logout()">Se Déconnecter 🚪</button>
-            </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
         </div>
-    </header>
+        <ul class="nav-links">
+            <li><a href="#">Accueil 🏠</a></li>
+            <li><a href="#">Profil 👤</a></li>
+            <li><a href="#">Télécharger Résultats 📊</a></li>
+            <li><a href="#">Déposer Compte Rendu 📝</a></li>
+            <li><a href="#">Se Déconnecter 🚪</a></li>
+            <li>
+                <select class="form-select" id="experiences" onchange="changeExperience()">
+                    <option value="exp1">Expérience 1 🧪</option>
+                    <option value="exp2">Expérience 2 🧪</option>
+                    <option value="exp3">Expérience 3 🧪</option>
+                </select>
+            </li>
+            
+        </ul>
+    </nav>
 
 <!-- Main Content -->
 <!-- Main Content -->
@@ -65,15 +47,23 @@
         <div class="col-lg-6">
             <!-- Simulation Section -->
             <section class="simulation-section">
-                <p>Zone de simulation de l'expérience</p>
-                <iframe id="simulationFrame" width="100%" height="200" src="" frameborder="0" allowfullscreen></iframe>
+                <div class="section-label">Simulation</div>
+                <button class="btn btn-primary" onclick="toggleFullScreen('simulation-section')">
+                    <i class="fas fa-expand"></i> 
+                </button>
+                <div id="liveResults">
+                    <iframe id="simulationFrame" width="100%" height="250" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
             </section>
         </div>
         <div class="col-lg-6">
             <!-- Video Section -->
             <section class="video-section">
-                <button class="btn btn-primary" onclick="startLiveVideo()">Lancer la vidéo en direct ▶️</button>
-                <button class="btn btn-primary" onclick="toggleVideoSize()">Agrandir la Vidéo 🔍</button>
+                <div class="section-label">Vidéo</div>
+                <button class="btn btn-primary1" onclick="startLiveVideo()">Lancer la vidéo en direct ▶️</button>
+                <button class="btn btn-primary" onclick="toggleFullScreen('video-section')">
+                    <i class="fas fa-expand"></i> 
+                </button>
                 <div class="video-container">
                     <video id="liveVideo" width="100%" height="200" autoplay playsinline></video>
                 </div>
@@ -84,9 +74,12 @@
             <div class="col-lg-6">
                 <!-- Results Section -->
                 <section class="results-section">
-                    <p>Zone pour afficher les résultats</p>
+                    <div class="section-label">Résultats</div>
+                    <button class="btn btn-primary" onclick="toggleFullScreen('results-section')">
+                        <i class="fas fa-expand"></i> 
+                    </button>
                     <div id="liveResults">
-                        <iframe id="resultsFrame" width="100%" height="200" src="" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="resultsFrame" width="100%" height="260" src="" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </section>
             </div>
@@ -121,15 +114,6 @@
     
 </main>
 
-
-        
-    
-    
-        
-    
-    
-
-    
 </body>
 
 </html>
