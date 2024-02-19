@@ -40,7 +40,7 @@ function toggleChatbot() {
 
 
 function goToDashboard() {
-    window.location.href = "index.html";
+    window.location.href = "indexx.html";
 }
 
 function viewProfile() {
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function logout() {
-    window.location.href = "indexxx.html";
+    window.location.href = "index.html";
 }
 
 function changeExperience() {
