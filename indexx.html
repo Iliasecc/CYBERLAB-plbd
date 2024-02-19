@@ -26,16 +26,21 @@
         <ul class="nav-links">
             <li><a href="#" onclick="goToDashboard()">Accueil 🏠</a></li>
             <li><a href="#" onclick="viewProfile()">Profil 👤</a></li>
-            <li><a href="#" onclick="downloadResults()">Télécharger Résultats 📊</a></li>
-            <li><a href="#" onclick="submitReport()">Déposer Compte Rendu 📝</a></li>
+            <li><a href="c:\Users\Lenovo\Downloads\NORD DU MAROC.pdf" download="resultats.pdf">Télécharger Résultats 📊</a></li>
+            <li><a href="#" onclick="submitReportBtn()">Déposer Compte Rendu 📝</a></li>
             <li><a href="#" onclick="logout()">Se Déconnecter 🚪</a></li>
-            <li>
+            <li>   
                 <select class="form-select" id="experiences" onchange="changeExperience()">
                     <option value="exp1">Expérience 1 🧪</option>
                     <option value="exp2">Expérience 2 🧪</option>
                     <option value="exp3">Expérience 3 🧪</option>
                 </select>
             </li>
+            <div id="pdfIconContainer">
+                <div id="downloadLinkContainer">
+ 
+                </div>
+            </div>  
         </ul>
         
     </nav>
