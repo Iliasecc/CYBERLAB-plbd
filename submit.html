@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="submit.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>PDF Submission Page</title>
+</head>
+<body>
+    <nav>
+        <div class="logo" style="display: flex; align-items: center;">
+            <span style="color: #01939c; font-size: 26px; font-weight: bold; letter-spacing: 1px; margin-left: 20px;">CYBERLAB</span>
+        </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="goToDashboard()">Accueil 🏠</a></li>
+            <li><a href="#" onclick="viewProfile()">Profil 👤</a></li>
+            <li><a href="#" onclick="downloadResults()">Télécharger Résultats 📊</a></li>
+            <li><a href="#" onclick="submitReport()">Déposer Compte Rendu 📝</a></li>
+            <li><a href="#" onclick="logout()">Se Déconnecter 🚪</a></li>
+        </ul>
+        
+    </nav>
+    <main>
+        <div id="pdfContainer">
+            <h1>Déposer Votre Compte Rendu</h1>
+            <input type="file" accept=".pdf" id="pdfInput">
+            <button class="submit-btn" id="submitPdfBtn" onclick="submitPdf()">Submit PDF</button>
+            <div id="pdfActions"></div>
+        </div>
+    </main>
+    
+    
+</body>
+</html>
