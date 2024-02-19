@@ -1,3 +1,6 @@
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");
@@ -44,13 +47,104 @@ function viewProfile() {
     window.location.href = "profile.html";
 }
 
-function downloadResults() {
-    // TODO: Implémenter la logique pour télécharger les résultats.
+function submitReportBtn() {
+    window.location.href = "submit.html"
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const pdfInput = document.getElementById("pdfInput");
+    const pdfContainer = document.getElementById("pdfContainer");
 
-function submitReport() {
-    // TODO: Implémenter la logique pour déposer un compte rendu.
-}
+    // Chargez le PDF précédemment enregistré depuis le stockage local
+    const savedPdf8 = localStorage.getItem("savedPdf8");
+
+    if (savedPdf8) {
+        displayPdf(savedPdf8);
+    } else {
+        showSubmitPdfBtn();
+    }
+
+    function displayPdf(pdfUrl) {
+        const pdfEmbed = document.createElement("embed");
+        pdfEmbed.src = pdfUrl;
+        pdfEmbed.type = "application/pdf";
+        pdfEmbed.width = "100%";
+        pdfEmbed.height = "500px";
+
+        pdfContainer.innerHTML = "";
+        pdfContainer.appendChild(pdfEmbed);
+
+        // Ajoutez un bouton de suppression au-dessus du PDF
+        const deletePdfIcon = document.createElement("button");
+        deletePdfIcon.textContent = "Delete PDF";
+        deletePdfIcon.addEventListener("click", deletePdf);
+
+        pdfContainer.appendChild(deletePdfIcon);
+    }
+
+    function showSubmitPdfBtn() {
+        // Vérifiez si le bouton Soumettre PDF existe et affichez-le
+        const submitPdfBtn = document.getElementById("submitPdfBtn");
+        if (submitPdfBtn) {
+            submitPdfBtn.style.display = "block";
+        } else {
+            // Si le bouton Soumettre PDF n'existe pas, créez-le et ajoutez un gestionnaire d'événements
+            const submitPdfBtn = document.createElement("button");
+            submitPdfBtn.id = "submitPdfBtn";
+            submitPdfBtn.textContent = "Submit PDF";
+            submitPdfBtn.addEventListener("click", submitPdf);
+
+            pdfContainer.appendChild(submitPdfBtn);
+        }
+    }
+
+    function submitPdf() {
+        const file = pdfInput.files[0];
+
+        if (file && file.type === "application/pdf") {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const pdfUrl = e.target.result;
+
+                // Enregistrez l'URL du PDF dans le stockage local
+                localStorage.setItem("savedPdf8", pdfUrl);
+
+                // Affichez le PDF sur la page
+                displayPdf(pdfUrl);
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            alert("Veuillez sélectionner un fichier PDF valide.");
+        }
+    }
+ 
+    function deletePdf() {
+        // Supprimez le PDF enregistré du stockage local
+        localStorage.removeItem("savedPdf8");
+    
+        // Réaffichez le bouton Soumettre PDF
+        window.location.href = "submit.html"
+    
+        // Supprimez le PDF de la page
+        pdfContainer.innerHTML = "";
+    }
+    
+    
+
+    // Ajoutez un gestionnaire d'événements pour le bouton Soumettre PDF
+    document.getElementById("submitPdfBtn").addEventListener("click", submitPdf);
+});
+
+
+
+
+
+
+
+
+
+
 
 function logout() {
     window.location.href = "indexxx.html";
