@@ -1,0 +1,115 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <nav>
+        <div class="logo" style="display: flex; align-items: center;">
+            <span style="color: #01939c; font-size: 32px; font-weight: bold; letter-spacing: 2px; margin-left: 20px; text-transform: uppercase; font-family: 'Arial', sans-serif; text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);">CYBERLAB</span>
+        </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="goToDashboard()">Accueil 🏠</a></li>
+            <li><a href="#" onclick="viewProfile()">Profil 👤</a></li>
+            <li><a href="c:\Users\Lenovo\Downloads\NORD DU MAROC.pdf" download="resultats.pdf">Télécharger Résultats 📊</a></li>
+            <li><a href="#" onclick="submitReportBtn()">Déposer Compte Rendu 📝</a></li>
+            <li><a href="#" onclick="logout()">Se Déconnecter 🚪</a></li>
+            <li>   
+                <select class="form-select" id="experiences2" onchange="changeExperience2()">
+                    <option value="exp2">Expérience 2 🧪</option>
+                    <option value="exp1">Expérience 1 🧪</option>
+                </select>
+            </li>            
+        </ul>    
+    </nav>
+<!-- Main Content -->
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Simulation Section -->
+            <section class="simulation-section">
+                <div class="section-label">Simulation</div>
+                <button class="btn btn-primary" onclick="toggleFullScreen('simulation-section')">
+                    <i class="fas fa-expand"></i> 
+                </button>
+                <div id="liveResults">
+                    <iframe id="simulationFrame" width="100%" height="250" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-6">
+            <!-- Video Section -->
+            <section class="video-section">
+                <div class="section-label">Vidéo</div>
+                <button class="btn btn-primary1" onclick="startLiveVideo()">Lancer la vidéo en direct ▶️</button>
+                <button class="btn btn-primary" onclick="toggleFullScreen('video-section')">
+                    <i class="fas fa-expand"></i> 
+                </button>
+                <div class="video-container">
+                    <video id="liveVideo" width="100%" height="200" autoplay playsinline></video>
+                </div>
+            </section>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-lg-6">
+                <!-- Results Section -->
+                <section class="results-section">
+                    <div class="section-label">Résultats</div>
+                    <button class="btn btn-primary" onclick="toggleFullScreen('results-section')">
+                        <i class="fas fa-expand"></i> 
+                    </button>
+                    <div id="liveResults">
+                        <iframe id="resultsFrame" width="100%" height="260" src="" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </section>
+            </div>
+        </div>
+   
+        <div class="chatbot-icon" onclick="toggleChatbot()">
+            <div id="icon" class="circle">
+                <img src="https://th.bing.com/th/id/R.958e7e16adfd09ccb9c422879138876e?rik=0i1EFquA5d0Y2Q&pid=ImgRaw&r=0" alt="Chatbot Icon">
+
+            </div>
+        </div>
+    
+        <!-- Chatbot Popup Section -->
+        <div id="chatbot-popup">
+            <div class="chatbot-header">
+                <span onclick="toggleChatbot()" class="close">&times;</span>
+                <span class="chatbot-title">Chatbot</span>
+            </div>
+            <div class="chatbot-content">
+                <div id="chat-messages"></div>
+                <div class="input-container">
+                    <input class="form-control" type="text" id="user-input" placeholder="Posez votre question...">
+                    <div id="send-message-icon"  onclick="sendMessage()">
+                        <img src="https://www.iconbunny.com/icons/media/catalog/product/6/0/602.9-send-message-icon-iconbunny.jpg" alt="input-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</main>
+
+
+</body>
+
+</html>
