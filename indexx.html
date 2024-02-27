@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>
@@ -8,15 +8,17 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/lightgallery/1.10.0/css/lightgallery.min.css"> 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
 </head>
 
 <body>
     <!-- Header -->
     <nav>
         <div class="logo" style="display: flex; align-items: center;">
-            <span style="color: #01939c; font-size: 26px; font-weight: bold; letter-spacing: 1px; margin-left: 20px;">CYBERLAB</span>
+            <span style="color: #01939c; font-size: 32px; font-weight: bold; letter-spacing: 2px; margin-left: 20px; text-transform: uppercase; font-family: 'Arial', sans-serif; text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);">CYBERLAB</span>
         </div>
         <div class="hamburger">
             <div class="line1"></div>
@@ -33,19 +35,10 @@
                 <select class="form-select" id="experiences" onchange="changeExperience()">
                     <option value="exp1">Expérience 1 🧪</option>
                     <option value="exp2">Expérience 2 🧪</option>
-                    <option value="exp3">Expérience 3 🧪</option>
                 </select>
             </li>
-            <div id="pdfIconContainer">
-                <div id="downloadLinkContainer">
- 
-                </div>
-            </div>  
-        </ul>
-        
+        </ul>    
     </nav>
-
-<!-- Main Content -->
 <!-- Main Content -->
 <main class="container-fluid">
     <div class="row">
@@ -53,14 +46,37 @@
             <!-- Simulation Section -->
             <section class="simulation-section">
                 <div class="section-label">Simulation</div>
-                <button class="btn btn-primary" onclick="toggleFullScreen('simulation-section')">
-                    <i class="fas fa-expand"></i> 
-                </button>
                 <div id="liveResults">
-                    <iframe id="simulationFrame" width="100%" height="250" src="" frameborder="0" allowfullscreen></iframe>
+                    <!-- Video YouTube -->
+                    <iframe width="100%" height="250" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+        
+                    <!-- Images -->
+                <div class="image-gallery">
+                    <div class="image-item" onclick="openImageModal('https://th.bing.com/th/id/OIP.tO0gdeEnXkhcs82mW8QOcwAAAA?w=300&h=300&rs=1&pid=ImgDetMain')">
+                        <div class="image-label">Image 1</div>
+                        <div class="image-icon" role="img" aria-label="Image">&#128366;</div>    
+                    </div>
+                    <div class="image-item" onclick="openImageModal('c:\Users\Lenovo\Pictures\image poo.png')">
+                        <div class="image-label">Image 2</div>
+                        <div class="image-icon" role="img" aria-label="Image">&#128366;</div>    
+                    </div>
+                    <!-- Ajoutez plus d'images avec leurs miniatures -->
+                </div>
+
+                <!-- Overlay pour afficher l'image agrandie -->
+                <div id="image-overlay" class="overlay" onclick="closeImageModal()">
+                    <div id="modal-content">
+                        <img id="modal-image" src="" alt="Modal Image">
+                    </div>
+                </div>
+
+
                 </div>
             </section>
+        
+            
         </div>
+        
         <div class="col-lg-6">
             <!-- Video Section -->
             <section class="video-section">
@@ -93,7 +109,6 @@
         <div class="chatbot-icon" onclick="toggleChatbot()">
             <div id="icon" class="circle">
                 <img src="https://th.bing.com/th/id/R.958e7e16adfd09ccb9c422879138876e?rik=0i1EFquA5d0Y2Q&pid=ImgRaw&r=0" alt="Chatbot Icon">
-
             </div>
         </div>
     
@@ -115,9 +130,9 @@
         </div>
         
     </div>
-
     
 </main>
+
 
 </body>
 
