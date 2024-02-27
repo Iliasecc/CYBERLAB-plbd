@@ -28,6 +28,61 @@ main {
     padding-top: 5rem; /* Ajustez cette valeur en fonction de la hauteur de votre nav */
     
 }
+/* Styles pour la galerie d'images */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-item {
+    color: black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 16px; /* Ajustez la marge entre les images */
+    background-color: black; /* Ajoutez cette ligne pour définir la couleur du cadre */
+}
+
+
+.image-label {
+    margin-right: 8px; /* Ajustez la marge entre le texte et l'icône */
+}
+
+.image-item img {
+    display: none; /* Cacher l'image par défaut */
+}
+
+.image-icon {
+    font-size: 24px; /* Ajustez la taille de l'icône selon vos préférences */
+}
+
+/* Styles pour l'overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+#modal-content {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+#modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
 
  
  /*Styling logo*/
@@ -105,6 +160,42 @@ main {
  .hamburger{
     display: none;
  }
+/* ... Vos styles existants ... */
+
+/* ... Vos styles existants ... */
+
+#pdfIconContainer {
+    position: absolute;
+    top: 10px; /* Ajustez la distance depuis le haut */
+    right: 10px; /* Ajustez la distance depuis la droite */
+}
+
+.pdf-icon-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.pdf-icon-wrapper img {
+    width: 40px; /* Ajustez la largeur de l'icône PDF selon vos besoins */
+    height: 40px; /* Ajustez la hauteur de l'icône PDF selon vos besoins */
+    margin-right: 10px; /* Ajoutez un espace à droite de l'icône PDF */
+}
+
+.delete-icon {
+    background-color: #e74c3c; /* Couleur de fond du bouton - Rouge */
+    color: #fff; /* Couleur du texte du bouton - Blanc */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+.delete-icon:hover {
+    background-color: #c0392b; /* Couleur de fond au survol - Rouge plus foncé */
+}
+
+/* ... D'autres styles que vous souhaitez appliquer à l'icône PDF et au bouton de suppression ... */
 
 
 iframe, img {
@@ -119,8 +210,8 @@ iframe, img {
 
 
 .circle {
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     background-color: #f6f7f8;
     display: flex;
@@ -224,6 +315,13 @@ iframe, img {
     border: none; /* Supprime la bordure autour de l'image */
     
 }
+#icon img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
 
 
 /* Ajouter le style suivant pour les étiquettes */
