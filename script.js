@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
 function activateChatbot() {
     // Afficher la zone de discussion
     document.getElementById('chatbot-popup').style.display = 'block';
@@ -40,7 +39,7 @@ function toggleChatbot() {
 
 
 function goToDashboard() {
-    window.location.href = "indexx.html";
+    window.location.href = "index.html";
 }
 
 function viewProfile() {
@@ -147,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function logout() {
-    window.location.href = "index.html";
+    window.location.href = "indexxx.html";
 }
 
 function changeExperience() {
@@ -186,5 +185,44 @@ function toggleFullScreen(sectionId) {
     }
 }
 
+function changeExperience() {
+    // Obtenez la valeur sélectionnée
+    var selectedValue = document.getElementById("experiences").value;
+
+    // Effectuez la redirection en fonction de la valeur sélectionnée
+    if (selectedValue === "exp1") {
+        window.location.href = "indexx.html";
+    } else if (selectedValue === "exp2") {
+        window.location.href = "index2.html";
+    }
+}
+function changeExperience2() {
+    var selectedValue = document.getElementById("experiences2").value;
+
+    if (selectedValue === "exp1") {
+        window.location.href = "indexx.html";
+    } else if (selectedValue === "exp2") {
+        window.location.href = "index2.html";
+    }
+}
+
+
+// Assurez-vous que le script est exécuté après le chargement du document
+document.addEventListener("DOMContentLoaded", function() {
+    // Vous pouvez ajouter d'autres initialisations ici si nécessaire
+});
+
+function openImageModal(imageSrc) {
+    var modalImage = document.getElementById('modal-image');
+    modalImage.src = imageSrc;
+
+    var overlay = document.getElementById('image-overlay');
+    overlay.style.display = 'flex';
+}
+
+function closeImageModal() {
+    var overlay = document.getElementById('image-overlay');
+    overlay.style.display = 'none';
+}
 
 
