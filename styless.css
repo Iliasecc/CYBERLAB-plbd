@@ -7,8 +7,9 @@ html {
     font-family: sans-serif;
     background: linear-gradient(#6fade7, #2793a1);
   }
-  
+ 
   .login-box {
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -30,6 +31,12 @@ html {
   
   .login-box .user-box {
     position: relative;
+  }
+  .login-box img {
+    width: 90px;
+    height: 65px;
+    border: none;
+    margin-bottom: 40px;
   }
   
   .login-box .user-box input {
