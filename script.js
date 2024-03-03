@@ -20,6 +20,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+// Initialisez l'objet OpenAI avec votre clé API
+// Initialisez l'objet openai avec votre clé API
+const apiKey= ('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');
+
+// Déplacez la déclaration de openai à l'extérieur de vos fonctions
+
 function activateChatbot() {
     // Afficher la zone de discussion
     document.getElementById('chatbot-popup').style.display = 'block';
@@ -36,10 +42,40 @@ function toggleChatbot() {
     icon.classList.toggle("to-x");
 }
 
+function sendMessage() {
+    // Récupérer le message de l'utilisateur depuis la zone de chat
+    var userMessage = document.getElementById("user-input").value;
+
+    // Récupérer la zone de chat pour afficher les messages
+    var chatMessages = document.getElementById("chat-messages");
+
+    // Afficher l'identification de l'utilisateur dans la zone de chat
+    chatMessages.innerHTML += `<div class="user-message">You: ${userMessage}</div>`;
+
+    // Appeler l'API GPT-3 pour obtenir la réponse
+    openai.complete({
+        engine: 'text-davinci-003',
+        prompt: userMessage,
+        max_tokens: 150
+    }).then(response => {
+        var chatbotResponse = response.choices[0].text;
+
+        // Afficher la réponse du chatbot dans la zone de chat
+        chatMessages.innerHTML += `<div class="chatbot-message">Chatbot: ${chatbotResponse}</div>`;
+    }).catch(error => {
+        console.error('Erreur lors de la communication avec GPT-3 :', error);
+    });
+
+    // Effacer le champ de saisie utilisateur
+    document.getElementById("user-input").value = "";
+}
+
+
+
 
 
 function goToDashboard() {
-    window.location.href = "index.html";
+    window.location.href = "indexx.html";
 }
 
 function viewProfile() {
@@ -146,19 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function logout() {
-    window.location.href = "indexxx.html";
-}
-
-function changeExperience() {
-    // TODO: Implémenter la logique pour changer d'expérience.
-}
-
-
-
-
-
-function sendMessage() {
-    // TODO: Implémenter la logique pour envoyer un message dans la zone de chat.
+    window.location.href = "index.html";
 }
 
 function startLiveVideo() {
@@ -224,5 +248,62 @@ function closeImageModal() {
     var overlay = document.getElementById('image-overlay');
     overlay.style.display = 'none';
 }
+// Ajoutez ce script pour gérer l'affichage/masquage de la zone de code
+
+var pythonEditor = CodeMirror.fromTextArea(document.getElementById("pythonEditor"), {
+    mode: "text/x-python",
+    theme: "dracula",
+    lineNumbers: true,
+    autoCloseBrackets: true,
+});
+
+var widthPython = window.innerWidth;
+var inputPython = document.getElementById("inputPython");
+var outputPython = document.getElementById("outputPython");
+var runPython = document.getElementById("runPython");
+
+pythonEditor.setSize(0.7 * widthPython, "500");
+
+var optionPython = document.getElementById("inlineFormSelectPrefPython");
+
+optionPython.addEventListener("change", function () {
+    if (optionPython.value == "Java") {
+        pythonEditor.setOption("mode", "text/x-java");
+    } else if (optionPython.value == "Cpp") {
+        pythonEditor.setOption("mode", "text/x-c++src");
+    } else {
+        pythonEditor.setOption("mode", "text/x-python");
+    }
+});
+
+var codePython;
+
+runPython.addEventListener("click", async function () {
+    codePython = {
+        code: pythonEditor.getValue(),
+        input: inputPython.value,
+        lang: optionPython.value
+    };
+
+    console.log(codePython);
+
+    var oDataPython = await fetch("http://localhost:8000/compile", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(codePython)
+    });
+
+    var dPython = await oDataPython.json();
+    outputPython.value = dPython.output;
+});
+
+
+
+
+
+
+
 
 
