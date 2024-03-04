@@ -8,6 +8,7 @@
  }
  body {
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 nav {
@@ -39,13 +40,13 @@ main {
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-right: 16px; /* Ajustez la marge entre les images */
-    background-color: black; /* Ajoutez cette ligne pour définir la couleur du cadre */
+    margin-right: 6px; /* Ajustez la marge entre les images */
+    background-color: #3498db; /* Ajoutez cette ligne pour définir la couleur du cadre */
 }
 
-
 .image-label {
-    margin-right: 8px; /* Ajustez la marge entre le texte et l'icône */
+    margin: 0px;
+   ; /* Ajustez la marge entre le texte et l'icône */
 }
 
 .image-item img {
@@ -53,8 +54,9 @@ main {
 }
 
 .image-icon {
-    font-size: 24px; /* Ajustez la taille de l'icône selon vos préférences */
+    font-size: 20px; /* Ajustez la taille de l'icône selon vos préférences */
 }
+
 
 /* Styles pour l'overlay */
 .overlay {
@@ -329,7 +331,7 @@ iframe, img {
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: rgba(190, 91, 91, 0.5);
+    background-color: rgba(15, 15, 15, 0.5);
     padding: 5px;
     border-radius: 5px;
     font-size: 14px;
@@ -403,6 +405,125 @@ section:hover .section-label {
     bottom: 10px;
     right: 10px;
 }
+/* Ajoutez ce style pour la zone de code */
+/* Ajustements pour la section de code */
+/* Ajustements pour la section de code */
+/* Ajustements pour la section de code */
+label[for="inlineFormSelectPrefPython"] {
+    color: rgb(253, 253, 255); /* Couleur bleue */
+    background-color: #22638f;
+}
+
+/* Si vous voulez également changer la couleur du texte dans la liste déroulante (select), vous pouvez utiliser : */
+#inlineFormSelectPrefPython {
+    color: rgb(251, 251, 255); /* Couleur bleue */
+    background-color: #2980b9;
+}
+
+/* Si vous voulez changer la couleur du texte de l'option sélectionnée, vous pouvez utiliser : */
+#inlineFormSelectPrefPython option[selected] {
+    color: blue; /* Couleur bleue */
+    background-color: #22638f;
+}
+
+
+#codeButton {
+    color: #fff;
+    background-color: #2980b9;
+    padding: 3px 5px; /* Ajustez la taille du padding selon vos besoins */
+    border: none;
+    cursor: pointer;
+    margin-left: 580px; /* Ajustez la marge selon vos besoins pour décaler vers la droite */
+}
+.custom-output {
+    color: black; /* Couleur du texte en noir */
+    margin-top: 1px;
+    height: 10px; 
+    
+    resize: none; /* Désactive le redimensionnement de la zone de texte */
+ /* Bordure arrondie */
+    overflow-y: auto; /* Ajoute une barre de défilement vertical si le contenu dépasse */
+     
+}
+/* Ajustez ces styles dans votre fichier styles.css */
+#outputPython {
+    display: none;
+    /* Autres styles pour l'output */
+}
+.scroll-btn {
+    cursor: pointer;
+    background-color: #343a40; /* Couleur de fond */
+    color: #fff; /* Couleur du texte blanc */
+    border: none; /* Supprimer la bordure */
+    border-radius: 5%; /* Bordure arrondie */
+    font-size: 10px; /* Ajustez la taille de la police selon vos besoins *//* Utilisez "absolute" pour positionner par rapport au conteneur parent */
+    bottom: 0px; /* Ajustez la position verticale selon vos besoins */
+    right: 105px; /* Ajustez la position horizontale selon vos besoins */
+    padding: 0px;
+    transition: background-color 0.3s ease; /* Animation de transition pour une expérience utilisateur plus fluide */
+}
+
+
+
+
+/* Change la couleur du bouton lorsqu'il est survolé */
+.scroll-btn:hover {
+    background-color: #495057;
+}
+
+.output-column {
+    background-color: #343a40; /* Couleur de fond */
+    border-radius: 2px; /* Bordure arrondie */
+    padding: 0px !important; /* Réduire la taille du padding */
+    margin: 2px 0;
+    margin-left: 13px; /* Marge supérieure et inférieure */
+}
+
+/* styles.css */
+
+/* Réduire la taille du padding */
+.d-flex-styles {
+    justify-content: space-between;
+    margin-bottom: 2px;
+     
+    background-color: #343a40; /* Couleur de fond */
+    border-radius: 2px; /* Bordure arrondie */
+    padding: 4px !important;
+    height:  50px; /* Réduire la taille du padding */
+}
+
+/* Réduire la taille de la colonne */
+.col-styles {
+    width: 120px !important; 
+
+    /* Ajustez selon vos besoins */
+}
+
+/* Styles pour le bouton Exécuter */
+#runPython {
+    background-color: #2980b9; /* Couleur de fond */
+    border: none; /* Supprimer la bordure */
+    padding: 15px 1Opx; /* Ajustez selon vos besoins */
+}
+
+
+
+
+
+
+/* Styles pour la nouvelle zone de code en Python */
+
+
+/* Autres styles pour votre application... */
+
+
+
+
+
+ 
+
+/* Style supplémentaire si nécessaire */
+
  /*Stying for small screens*/
 /* Ajustements pour le mode hamburger */
 @media screen and (max-width: 800px) {
@@ -428,15 +549,15 @@ section:hover .section-label {
         height: 100vh;
         width: 100%;
         flex-direction: column;
-        clip-path: circle(50px at 90% -20%);
         -webkit-clip-path: circle(50px at 90% -10%);
+        clip-path: circle(50px at 90% -20%);
         transition: all 1s ease-out;
         pointer-events: none;
     }
 
     .nav-links.open {
-        clip-path: circle(1000px at 90% -10%);
         -webkit-clip-path: circle(1000px at 90% -10%);
+        clip-path: circle(1000px at 90% -10%);
         pointer-events: all;
     }
 

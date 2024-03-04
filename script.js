@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");
@@ -171,16 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("submitPdfBtn").addEventListener("click", submitPdf);
 });
 
-
-
-
-
-
-
-
-
-
-
 function logout() {
     window.location.href = "index.html";
 }
@@ -250,6 +237,19 @@ function closeImageModal() {
 }
 // Ajoutez ce script pour gérer l'affichage/masquage de la zone de code
 
+// Modifier la taille initiale de CodeMirror dans votre script.js
+// Utiliser CodeMirror pour la nouvelle zone de texte
+function toggleCodeSection() {
+    var codeSection = document.getElementById("codeSection");
+
+    // Toggle la visibilité de la zone de code
+    codeSection.style.display = (codeSection.style.display === "none" || codeSection.style.display === "") ? "block" : "none";
+
+    // Rafraîchir l'éditeur CodeMirror lorsqu'il devient visible
+    if (codeSection.style.display === "block") {
+        pythonEditor.refresh();
+    }
+}
 var pythonEditor = CodeMirror.fromTextArea(document.getElementById("pythonEditor"), {
     mode: "text/x-python",
     theme: "dracula",
@@ -258,46 +258,66 @@ var pythonEditor = CodeMirror.fromTextArea(document.getElementById("pythonEditor
 });
 
 var widthPython = window.innerWidth;
-var inputPython = document.getElementById("inputPython");
 var outputPython = document.getElementById("outputPython");
 var runPython = document.getElementById("runPython");
 
-pythonEditor.setSize(0.7 * widthPython, "500");
-
-var optionPython = document.getElementById("inlineFormSelectPrefPython");
-
-optionPython.addEventListener("change", function () {
-    if (optionPython.value == "Java") {
-        pythonEditor.setOption("mode", "text/x-java");
-    } else if (optionPython.value == "Cpp") {
-        pythonEditor.setOption("mode", "text/x-c++src");
-    } else {
-        pythonEditor.setOption("mode", "text/x-python");
-    }
-});
-
-var codePython;
+pythonEditor.setSize(0.7 * widthPython, "150");
 
 runPython.addEventListener("click", async function () {
-    codePython = {
-        code: pythonEditor.getValue(),
-        input: inputPython.value,
-        lang: optionPython.value
-    };
+    try {
+        var codePython = {
+            code: pythonEditor.getValue(),
+            lang: "Python"
+        };
 
-    console.log(codePython);
+        console.log(codePython);
 
-    var oDataPython = await fetch("http://localhost:8000/compile", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(codePython)
-    });
+        var oDataPython = await fetch("http://localhost:8000/compile", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(codePython)
+        });
 
-    var dPython = await oDataPython.json();
-    outputPython.value = dPython.output;
+        var dPython = await oDataPython.json();
+        
+        // Afficher la sortie ou l'erreur dans la zone de sortie
+        if (dPython.output) {
+            outputPython.value = dPython.output;
+        } else if (dPython.error) {
+            outputPython.value = "Erreur : " + dPython.error;
+        }
+    } catch (error) {
+        console.error("Erreur lors de l'exécution du code :", error);
+        outputPython.value = "Erreur inattendue lors de l'exécution.";
+    }
 });
+// Ajoutez cette fonction à votre fichier script.js
+
+// Modifiez cette fonction dans votre fichier script.js
+
+function toggleOutputScroll() {
+    var outputTextarea = document.getElementById("outputPython");
+    var button = document.querySelector(".scroll-btn");
+
+    // Alterne la visibilité de la zone d'output
+    if (outputTextarea.style.display === "none" || outputTextarea.style.display === "") {
+        outputTextarea.style.display = "block";
+        button.textContent = "▼"; // Change la flèche vers le bas
+    } else {
+        outputTextarea.style.display = "none";
+        button.textContent = "▲"; // Change la flèche vers le haut
+    }
+}
+
+
+
+
+
+
+
+
 
 
 
