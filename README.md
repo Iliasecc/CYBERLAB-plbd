@@ -26,21 +26,17 @@ script.js
     overflow-y: auto; /* Permet à la zone de texte de défiler verticalement */
 }
 
-#codeButton {
-    color: #fff;
-    background-color: #2980b9;
-    padding: 3px 5px; /* Ajustez la taille du padding selon vos besoins */
-    border: none;
-    cursor: pointer;
-    margin-left: 450px; /* Ajustez la marge selon vos besoins pour décaler vers la droite */
-}
-
-
-#exButton {
-    color: #fff; /* Couleur du texte pour le bouton "Code" */
-    background-color: #2980b9; /* Couleur de fond pour le bouton "Code" */
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-    margin-left:450px ;
+window.watsonAssistantChatOptions = {
+    integrationID: "d9ab082d-21f9-4d83-bdd0-26d45c408f7c", // The ID of this integration.
+    region: "eu-de", // The region your integration is hosted in.
+    serviceInstanceID: "c8ac51bc-6630-4efb-ab1a-88f60f4b2d60", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+function logout() {
+    window.location.href = "index.html";
 }

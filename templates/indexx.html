@@ -1,0 +1,194 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/lib/codemirror.css">
+    <link rel="stylesheet" href="static/theme/dracula.css">
+    
+    
+    <script src="static/lib/codemirror.js"></script>
+    <script src="static/mode/python/python.js"></script>
+    <script src="static/addon/edit/closebrackets.js"></script>
+    
+    <!-- Inclure Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- Inclure Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    
+    <!-- Inclure votre fichier de style -->
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/theme/dracula.css">
+     <!-- Import du thème Dracula -->
+    <style>
+        .cm-s-dracula.CodeMirror {
+            width: 735px !important;
+            height: 335px !important;
+            margin-bottom: 15px !important;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- Header -->
+    <nav>
+        <div class="logo" style="display: flex; align-items: center;">
+            <img src="static/image/cyberlog.jpg" alt="Logo" class="logo-image">
+            <span style="color: #feffff; font-size: 25px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-family: 'Arial', sans-serif; text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5); transform: skewX(-5deg);">CYBERLAB</span>
+        </div>
+        
+        
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href='{{ url_for('index1') }}' onclick="goToDashboard()">Accueil 🏠</a></li>
+            <li><a href="static/pdf_en.pdf" download="resultats.pdf">Documentation 📊</a></li>
+            <li><a href='{{ url_for('submit') }}' onclick="submitReportBtn()">Déposer Compte Rendu 📝</a></li>
+            <li><a href='{{ url_for('index') }}' onclick="logout()">Se Déconnecter 🚪</a></li>
+            <li>   
+                <select class="form-select" id="experiences" onchange="changeExperience()">
+                    <option value="exp1">Travail Pratique 1 🧪</option>
+                    <option value="exp2">Travail Pratique 2 🧪</option>
+                    <option value="exp2">Travail Pratique 3 🧪</option>
+                    <option value="exp2">Travail Pratique 4 🧪</option>
+                    <option value="exp2">Travail Pratique 5 🧪</option>
+                    <option value="exp2">Travail Pratique 6 🧪</option>
+                </select>
+            </li>
+        </ul>    
+    </nav>
+<!-- Main Content -->
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Simulation Section -->
+            <section class="simulation-section" >
+                <div class="section-label">Visualisation du travail pratique</div>
+                </button>
+                
+    
+                <!-- Zone de code initialement cachée -->
+
+                <div id="liveResultsSimulation">
+                    <!-- Video YouTube -->
+                    <!-- Remplacez le lien direct par le lien d'intégration -->
+                    <iframe width="100%" height="380" src="https://www.youtube.com/embed/KSG3spwBAFw" frameborder="0" allowfullscreen></iframe>
+
+                    <!-- Images -->
+                <div class="image-gallery">
+                    <div class="image-item" onclick="openImageModal('https://github.com/Iliasecc/CYBERLAB/blob/main/image/ecosystem_ned2.png?raw=true')">
+                        <div class="image-label">Image 1</div>
+                        <div class="image-icon" role="img" aria-label="Image">&#128366;</div>    
+                    </div>
+                    <div class="image-item" onclick="openImageModal('https://github.com/Iliasecc/CYBERLAB/blob/main/image/fr_visiot_ned2.png?raw=true')">
+                        <div class="image-label">Image 2</div>
+                        <div class="image-icon" role="img" aria-label="Image">&#128366;</div>    
+                    </div>
+                    <div class="image-item" onclick="openVideoModal('https://niryo.com/wp-content/uploads/2023/10/niryo_electro_conveyor.mp4')">
+                        <div class="image-label">Vidéo</div>
+                        <div class="image-icon" role="img" aria-label="Video">&#127916;</div> <!-- Utilisez une icône de vidéo, par exemple, un symbole de caméra vidéo -->
+                    </div>
+                    
+                    
+                </div>
+
+                <!-- Overlay pour afficher l'image agrandie -->
+                <div id="image-overlay" class="overlay" onclick="closeImageModal()">
+                    <div id="modal-content">
+                        <img id="modal-image" src="" alt="Modal Image">
+                    </div>
+                </div>
+                <div id="video-overlay" class="overlay" onclick="closeVideoModal()">
+                    <video id="video-player" controls autoplay></video>
+                </div>
+                
+
+
+                </div>
+            </section>
+        
+            
+        </div>
+        
+        
+        <div class="col-lg-6">
+            <!-- Video Section -->
+            <section class="video-section ">
+                
+                <button id="startLiveVideoButton" class="btn btn-primary1" >Lancer le retour en direct ▶️</button>  
+                <button id="fullscreenButton" class="btn btn-primary1">Plein écran &#128162;</button>
+ 
+                
+                <!-- Div de conteneur vidéo avec arrière-plan par défaut -->
+                <div class="video-container default-background">
+                    <video  id="liveVideo" width="100%" height="380" autoplay playsinline></video>
+                </div>
+
+            </section>
+        </div>
+
+    
+        <!-- Zone pour écrire du code -->
+        <div id="codeSection">
+            <div class="row mt-5">
+                <div class="col-lg-7">
+                    <h2 class="text-center mb-4" style="color: #000000;">Contrôle du Ned2</h2>
+                    <div class="d-flex d-flex-styles" style="background-color: #1e1e1e;">
+                        <div class="col-5 col-styles">
+                            <label class="visually-hidden" for="inlineFormSelectPrefPython">Language</label>
+                            <select class="form-select" id="inlineFormSelectPrefPython">
+                                <option value="C" selected>C++</option>
+                                <option value="Python" selected>Python</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="button" id="runPython" class="btn btn-success" style="background-color: #036383; border: 1px solid #ffffff"><i class="bi bi-play-fill"></i>Exécuter</button>
+                        </div>
+                    </div>
+                    <textarea id="pythonEditor" aria-label="Python Code" placeholder="Écrire du code Python ici..." ></textarea>
+                </div>
+            </div>
+        </div>
+        
+    </div>    
+</main>
+  
+
+
+<script src="static/js/script.js"></script>
+<script>
+    window.embeddedChatbotConfig = {
+    chatbotId: "REFR68te2k08vcBsdmhI8",
+    domain: "www.chatbase.co"
+    }
+</script>
+<script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="REFR68te2k08vcBsdmhI8"
+    domain="www.chatbase.co"
+    defer>
+</script>
+<script>
+    function changeExperience() {
+        var selectedValue = document.getElementById("experiences").value;
+        if (selectedValue === "exp1") {
+            window.location.href = "{{ url_for('indexx') }}";
+        } else if (selectedValue === "exp2") {
+            window.location.href = "{{ url_for('index2') }}";
+        }
+    }
+
+</script>
+
+
+</body>
+
+</html>

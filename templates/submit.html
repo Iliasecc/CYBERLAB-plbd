@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="static/css/submit.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="static/js/script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>PDF Submission Page</title>
+    <style>
+        h1 {
+            color: #312727;
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <nav>
+        <div class="logoS" style="display: flex; align-items: center;">
+            <span style="color: #feffff; font-size: 25px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-family: 'Arial', sans-serif; text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5); transform: skewX(-5deg); Margin-left:25px; Margin-top:5px;">CYBERLAB</span>
+            <a href='{{ url_for('index1') }}' class="home-button" style="font-family: Arial, sans-serif;">Accueil</a>
+            <a href='{{ url_for('indexx') }}' class="TP-button">Revenir au TP</a>
+            <a href='{{ url_for('index') }}' class="Deconn-button">Se Déconnecter</a>
+            <span class="nav-title" style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
+            Merci d'avoir utilisé CYBERLAB ❤️
+            </span>
+        </div>
+    </nav>
+    <main>
+        <button id="launchQuizBtn" onclick="launchQuiz()" style="align-self: start; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #9333ea, #036383) 0 0 / 200% 100% no-repeat;transition: background-position 0.15s;">Lancer le quizz</button>
+    
+        <div id="quizContainer" style="display: none;">
+            <!-- Results Section -->
+            <div class="section-wrapper" >
+                <section class="results-section fullscreen-mode" style="max-height: 200px; overflow-y: auto; border: 2px solid #036383; /* Border style and color */border-radius: 10px; box-shadow: 0px 25px 26px rgba(0, 0, 0, 0.2); transition: border 0.5s, box-shadow 0.5s;  padding: 10px;">
+                    <div class="section-label">Questionnaire</div>
+                    <button class="btn btn-primary" onclick="toggleFullScreen('results-section')" style="align-self: start; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #9333ea, #036383) 0 0 / 200% 100% no-repeat !important;transition: background-position 0.15s;">
+                        Plein écran &#128162;
+                    </button>
+                    <div id="liveResultsQuestionnaire">
+                        <!-- Insérez ici le formulaire du questionnaire avec 5 questions à choix multiples -->
+                        <form id="quizForm">
+                            <div class="question" style="color: black;">
+                                <p style="color: black;">Question 1: Quel est le nom du capteur utilisé dans le système Ned2 pour détecter les défauts de surface des pièces ?</p>
+                                <input type="radio" id="q1a" name="q1" value="a">
+                                <label for="q1a" style="color: black;">Capteur optique</label><br>
+                                <input type="radio" id="q1b" name="q1" value="b">
+                                <label for="q1b" style="color: black;">Capteur inductif</label><br>
+                                <input type="radio" id="q1c" name="q1" value="c">
+                                <label for="q1c" style="color: black;">Capteur laser</label><br>
+                            </div>
+                            <div class="question" style="color: black;">
+                                <p style="color: black;">Question 2: Quel est le protocole de communication principalement utilisé par le Ned2 pour transférer les données de contrôle ?</p>
+                                <input type="radio" id="q2a" name="q2" value="a">
+                                <label for="q2a" style="color: black;">CAN bus</label><br>
+                                <input type="radio" id="q2b" name="q2" value="b">
+                                <label for="q2b" style="color: black;">Modbus</label><br>
+                                <input type="radio" id="q2c" name="q2" value="c">
+                                <label for="q2c" style="color: black;">Ethernet/IP</label><br>
+                            </div>
+                            <div class="question" style="color: black;">
+                                <p style="color: black;">Question 3: Quelle est la fonction principale de l'algorithme de traitement d'image utilisé par le Ned2 ?</p>
+                                <input type="radio" id="q3a" name="q3" value="a">
+                                <label for="q3a" style="color: black;">Détection des contours</label><br>
+                                <input type="radio" id="q3b" name="q3" value="b">
+                                <label for="q3b" style="color: black;">Analyse spectrale</label><br>
+                                <input type="radio" id="q3c" name="q3" value="c">
+                                <label for="q3c" style="color: black;">Segmentation d'images</label><br>
+                            </div>
+                            <div class="question" style="color: black;">
+                                <p style="color: black;">Question 4: Quel est le principe de fonctionnement de la technologie de tri par induction utilisée par le Ned2 ?</p>
+                                <input type="radio" id="q4a" name="q4" value="a">
+                                <label for="q4a" style="color: black;">Tri par conductivité électrique</label><br>
+                                <input type="radio" id="q4b" name="q4" value="b">
+                                <label for="q4b" style="color: black;">Tri par résonance magnétique</label><br>
+                                <input type="radio" id="q4c" name="q4" value="c">
+                                <label for="q4c" style="color: black;">Tri par mesure de la densité</label><br>
+                            </div>
+                            <div class="question" style="color: black;">
+                                <p style="color: black;">Question 5: Quelle est la méthode utilisée par le Ned2 pour détecter les pièces en 3D ?</p>
+                                <input type="radio" id="q5a" name="q5" value="a">
+                                <label for="q5a" style="color: black;">Imagerie stéréoscopique</label><br>
+                                <input type="radio" id="q5b" name="q5" value="b">
+                                <label for="q5b" style="color: black;">Lidar</label><br>
+                                <input type="radio" id="q5c" name="q5" value="c">
+                                <label for="q5c" style="color: black;">Sonar </label><br>
+                            </div>
+                            <button type="button" onclick="submitQuiz()" style="align-self: start; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #9333ea, #db2777) 0 0 / 200% 100% no-repeat;transition: background-position 0.15s;">Soumettre</button>
+                        </form>
+                        
+                        
+                    </div>
+                </section>
+            </div>
+        </div>
+        <form id="submitPdfForm" action="/submit" method="post" enctype="multipart/form-data" style="display: none; color: black;">
+            <h2>Déposer Votre Compte Rendu</h2>
+            <input id="pdfInput" type="file" name="pdf" accept=".pdf">
+            <button type="submit" class="submit-btn" id="submitPdfBtn" style="align-self: start; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #9333ea, #036383) 0 0 / 200% 100% no-repeat;transition: background-position 0.15s;">Soumettre</button>
+        </form>
+        
+        <div id="pdfContainer"></div>
+        
+        <div id="aiResponse">
+          <h2><span class="robot-emoji">&#129302;</span> Feedback et Note</h2>
+          <p id="aiOutput" style="color: black;">{{ response }}</p>
+      </div>
+      
+        
+        
+        
+        
+    </main>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const pdfInput = document.getElementById("pdfInput");
+        const pdfContainer = document.getElementById("pdfContainer");
+    
+        // Chargez le PDF précédemment enregistré depuis le stockage local
+        const savedPdf8 = localStorage.getItem("savedPdf8");
+    
+        if (savedPdf8) {
+            displayPdf(savedPdf8);
+        } else {
+            showSubmitPdfBtn();
+        }
+    
+        function displayPdf(pdfUrl) {
+            const pdfEmbed = document.createElement("embed");
+            pdfEmbed.src = pdfUrl;
+            pdfEmbed.type = "application/pdf";
+            pdfEmbed.width = "100%";
+            pdfEmbed.height = "500px";
+    
+            pdfContainer.innerHTML = "";
+            pdfContainer.appendChild(pdfEmbed);
+    
+            // Ajoutez un bouton de suppression au-dessus du PDF
+            const deletePdfIcon = document.createElement("button");
+            deletePdfIcon.textContent = "Delete PDF";
+            deletePdfIcon.addEventListener("click", deletePdf);
+    
+            pdfContainer.appendChild(deletePdfIcon);
+        }
+    
+        function showSubmitPdfBtn() {
+            // Vérifiez si le bouton Soumettre PDF existe et affichez-le
+            const submitPdfBtn = document.getElementById("submitPdfBtn");
+            if (submitPdfBtn) {
+                submitPdfBtn.style.display = "block";
+            } else {
+                // Si le bouton Soumettre PDF n'existe pas, créez-le et ajoutez un gestionnaire d'événements
+                const submitPdfBtn = document.createElement("button");
+                submitPdfBtn.id = "submitPdfBtn";
+                submitPdfBtn.textContent = "Submit PDF";
+                submitPdfBtn.addEventListener("click", submitPdf);
+    
+                pdfContainer.appendChild(submitPdfBtn);
+            }
+        }
+    
+        function submitPdf() {
+            const file = pdfInput.files[0];
+    
+            if (file && file.type === "application/pdf") {
+                const reader = new FileReader();
+    
+                reader.onload = function (e) {
+                    const pdfUrl = e.target.result;
+    
+                    // Enregistrez l'URL du PDF dans le stockage local
+                    localStorage.setItem("savedPdf8", pdfUrl);
+    
+                    // Affichez le PDF sur la page
+                    displayPdf(pdfUrl);
+                };
+    
+                reader.readAsDataURL(file);
+            } else {
+                alert("Veuillez sélectionner un fichier PDF valide.");
+            }
+        }
+     
+        function deletePdf() {
+            // Supprimez le PDF enregistré du stockage local
+            localStorage.removeItem("savedPdf8");
+        
+            // Réaffichez le bouton Soumettre PDF
+            window.location.href = "{{ url_for('submit') }}"
+        
+            // Supprimez le PDF de la page
+            pdfContainer.innerHTML = "";
+        }
+        
+        
+    
+        // Ajoutez un gestionnaire d'événements pour le bouton Soumettre PDF
+        document.getElementById("submitPdfBtn").addEventListener("click", submitPdf);
+    });
+    function launchQuiz() {
+        // Masquer le bouton "Lancer le quizz"
+        document.getElementById("launchQuizBtn").style.display = "none";
+        // Afficher la section du quizz
+        document.getElementById("quizContainer").style.display = "block";
+        document.getElementById('aiResponse').style.display = 'none';
+    }
+</script>
+    
+</body>
+</html>

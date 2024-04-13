@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="profile page,bandhan">
+	<title>Profile page</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="static/js/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="static/css/essay.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+
+<body style="background: #ffffff;">
+    <!-- Header -->
+    <nav>
+        <div class="logo" style="display: flex; align-items: center;">
+            <span style="color: #feffff; font-size: 25px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-family: 'Arial', sans-serif; text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5); transform: skewX(-5deg);Margin-left:25px;Margin-top:5px;">CYBERLAB</span>
+			<a href='{{ url_for('index1') }}' class="home-button">Accueil</a>
+            <a href='{{ url_for('index') }}' class="Deconn-button">Se Déconnecter</a>
+		</div>
+    </nav>
+
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6">
+		
+		<div class="div-data">
+			<center><div>
+                <img src="https://th.bing.com/th/id/R.dc8b1732c919ca17845aab44dc3afb27?rik=qOkrlNPk9Y4cBg&pid=ImgRaw&r=0" alt="profile" class="img">
+			</div></center>
+	
+
+			<div class="data" style="margin-top: 20px;">
+				<label  style="width:100%">
+					Nom complet
+				    <input type="text" value="Admin Admin" class="input-data">
+				</label>
+			</div>
+
+			<div class="data">
+				<label  style="width:100%">Email
+				<input type="text" value="Admin@gmail.com" class="input-data">
+				</label>
+			</div>
+
+			<div class="data">
+				<label  style="width:100%">Numéro
+				<input type="Number" value="6006246679" class="input-data">
+				</label>
+			</div>
+
+			<div class="data">
+				<label  style="width:100%">Ville
+				<input type="text" value="Casablanca" class="input-data">
+				</label>
+			</div>
+
+			<div style="width:100%;">
+			<div class="col-sm-6" style="padding:10px">
+				<label  style="width:100%">Région
+				<input type="text" value="Casablanca" class="input-data">
+				</label>
+			</div>
+
+			<div class="col-sm-6" style="padding:10px">
+				<label  style="width:100%">Code postal
+				<input type="Number" value="57457" class="input-data">	
+				</label>	
+			</div>
+			</div>
+
+			<div class="data">
+				<label style="width:100%">Pays
+				<input type="text" value="MAROC" class="input-data">
+				</label>
+			</div>
+
+			</div>
+
+			
+		</div>
+
+	</div>
+	<div class="col-sm-3"></div>
+
+
+</body>
+</html>

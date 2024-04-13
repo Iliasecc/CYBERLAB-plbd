@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="static/js/script.js"></script>
+    <link rel="stylesheet" href="static/css/styles1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <nav>
+        <div class="logo" style="display: flex; align-items: center;">
+            <img src="static/image/cyberlog.jpg" alt="Logo" class="logo-image">
+            <span style="color: #feffff; font-size: 25px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-family: 'Arial', sans-serif; text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5); transform: skewX(-5deg);">CYBERLAB</span>
+        </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href='{{ url_for('index1') }}' onclick="goToDashboard()">Accueil 🏠</a></li>
+            <li><a href="c:\Users\Lenovo\Downloads\NORD DU MAROC.pdf" download="resultats.pdf">Télécharger Résultats 📊</a></li>
+            <li><a href='{{ url_for('submit') }}' onclick="submitReportBtn()">Déposer Compte Rendu 📝</a></li>
+            <li><a href='{{ url_for('index') }}' onclick="logout()">Se Déconnecter 🚪</a></li>
+            <li>   
+                <select class="form-select" id="experiences2" onchange="changeExperience2()">
+                    <option value="exp2">Travail Pratique 2 🧪</option>
+                    <option value="exp1">Travail Pratique 1 🧪</option>
+                    <option value="exp2">Travail Pratique 3 🧪</option>
+                    <option value="exp2">Travail Pratique 4 🧪</option>
+                    <option value="exp2">Travail Pratique 5 🧪</option>
+                    <option value="exp2">Travail Pratique 6 🧪</option>
+                </select>
+            </li>            
+        </ul>    
+    </nav>
+<!-- Main Content -->
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Simulation Section -->
+            <section class="simulation-section">
+                <div class="section-label">Simulation</div>
+                <button class="btn btn-primary" onclick="toggleFullScreen('simulation-section')">
+                    <i class="fas fa-expand"></i> 
+                </button>
+                <div id="liveResults">
+                    <iframe id="simulationFrame" width="100%" height="250" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-6">
+            <!-- Video Section -->
+            <section class="video-section">
+                <div class="section-label">Vidéo</div>
+                <button class="btn btn-primary1" onclick="startLiveVideo()">Lancer le retour en direct ▶️</button>
+                <button class="btn btn-primary" onclick="toggleFullScreen('video-section')">
+                    <i class="fas fa-expand"></i> 
+                </button>
+                <div class="video-container">
+                    <video id="liveVideo" width="100%" height="200" autoplay playsinline></video>
+                </div>
+            </section>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-lg-6">
+                <!-- Results Section -->
+                <section class="results-section">
+                    <div class="section-label">Résultats</div>
+                    <button class="btn btn-primary" onclick="toggleFullScreen('results-section')">
+                        <i class="fas fa-expand"></i> 
+                    </button>
+                    <div id="liveResults">
+                        <iframe id="resultsFrame" width="100%" height="260" src="" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </section>
+            </div>
+        </div>     
+    </div>
+    <div class="overlay main-overlay" id="overlay">
+        <div class="overlay-message">
+            <p>Restez à l'affût, car de passionnants travaux pratiques sont en cours de préparation. Revenez bientôt pour plonger dans le monde stimulant de l'apprentissage sur CyberLab !</p>
+        </div>
+    </div>
+    
+    
+</main>
+
+
+<script>
+   
+      document.addEventListener("DOMContentLoaded", function () {
+        var isSectionImplemented = false; // Changez ceci en fonction de l'état de votre implémentation
+
+        if (!isSectionImplemented) {
+            document.querySelector(".main-overlay").style.display = "flex";
+
+            // Ajoutez un gestionnaire d'événements pour masquer l'overlay lorsqu'on clique
+            document.querySelector(".main-overlay").addEventListener("click", function () {
+                document.querySelector(".main-overlay").style.display = "none";
+            });
+        }
+    });
+</script>
+<script>
+    window.embeddedChatbotConfig = {
+    chatbotId: "REFR68te2k08vcBsdmhI8",
+    domain: "www.chatbase.co"
+    }
+</script>
+<script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="REFR68te2k08vcBsdmhI8"
+    domain="www.chatbase.co"
+    defer>
+</script>
+<script>
+
+    function changeExperience2() {
+        var selectedValue = document.getElementById("experiences2").value;
+        if (selectedValue === "exp1") {
+            window.location.href = "{{ url_for('indexx') }}";
+        } else if (selectedValue === "exp2") {
+            window.location.href = "{{ url_for('index2') }}";
+        }
+    }
+</script>
+
+
+</body>
+
+</html>

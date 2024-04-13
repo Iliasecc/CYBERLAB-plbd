@@ -1,0 +1,248 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #ffffff;
+    overflow-y: auto;
+    overflow-x: auto; /* Couleur d'arrière-plan bleue */
+    
+}
+#aiResponse {
+    position: absolute;
+    top: 80px;
+    right: 20px; /* Alignement à droite */
+    width: 350px;
+    max-width: 360px;
+    height: 470px;
+    max-height: 500px;
+    background: linear-gradient(to bottom, #e0eefa 0%, #ececec 100%); /* Sophisticated gradient */
+    border: 2px solid #3e82f7; /* Thicker, more prominent border with a vibrant blue */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    padding: 15px 20px; /* Increased padding for better readability */
+    color: #333; /* Darker text for improved contrast */
+    text-align: justify; /* Justified text for a professional appearance */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    font-family: 'Roboto', sans-serif; /* Modern, clean font choice */
+    font-size: 16px; /* Slightly larger font for better readability on various screens */
+    line-height: 1.5; /* Increased line-height for improved spacing */
+    overflow-y: auto;
+    overflow-x: hidden; /* Only allow vertical scrolling for better UI */
+  }
+  
+
+
+#aiResponse h2 {
+    margin-top: 0;
+    font-family: 'Roboto', sans-serif; /* Utilise la police Roboto ou une police similaire */
+    font-weight: bold; 
+    color: #036383;/* Met en gras le titre */
+}
+
+#aiResponse p {
+    margin-bottom: 0;
+}
+
+
+main {
+    background-color: #fffcfc; /* Couleur d'arrière-plan blanc */
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(1, 0, 0, 5);
+    padding: 20px; /* Ajustez l'espacement intérieur selon vos besoins */
+}
+
+#pdfContainer {
+    text-align: center;
+}
+.home-button, .TP-button, .Deconn-button {
+    font-family: Arial, sans-serif !important; 
+    text-decoration: none;
+    color: #feffff;
+    font-size: 18px;
+    margin-top: 6px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+    margin-left: 60px;
+    border: none;
+    background-color: transparent;
+}
+
+.home-button:hover, .TP-button:hover, .Deconn-button:hover {
+    color: #3ee6e6;
+}
+
+h1 {
+    color: #312727;
+}
+
+input[type="file"],
+textarea {
+    margin: 15px 0;
+    width: calc(90% - 30px); /* Ajustez la largeur comme nécessaire */
+    padding: 10px; /* Ajoutez un peu de rembourrage pour un aspect plus aéré */
+    box-sizing: border-box; 
+    
+}
+.nav-title {
+    font-size: 16px; /* Adjust font size */
+    background: linear-gradient(to right, #ffffff, #e9bfe7, #aa7b9c,#995588, #9e3870); /* Background gradient */
+    -webkit-background-clip: text; /* Apply gradient to text (for Chrome/Safari) */
+    -webkit-text-fill-color: transparent; /* Transparent text color (for Chrome/Safari) */
+    background-clip: text; /* Apply gradient to text (for other browsers) */
+    text-fill-color: transparent; /* Transparent text color (for other browsers) */
+    font-weight: bold;
+    text-align: right;
+    padding: 0 25px;
+    margin-top: 6px;
+    border-left: 1px solid #ffffff; /* Optional divider between title and buttons */
+    font-family: 'Permanent Marker', cursive; /* Bizarre font style */
+     /* Subtle text shadow */
+    /* Optional animation (uncomment to add): */
+    
+  }
+  
+
+  
+  
+
+button {
+    padding: 5px 11px; /* Ajustez la taille des boutons */
+    margin: 18px 14px; /* Ajoute de l'espace en haut et en bas des boutons */
+    background-color: #036383; /* Couleur de fond des boutons */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block; /* Aligne les boutons en ligne */
+}
+
+button:hover {
+    background-color: #036383; /* Changement de couleur au survol */
+}
+
+.delete-pdf-btn {
+    background-color: #e74c3c; /* Couleur de fond pour le bouton de suppression */
+}
+
+
+
+
+nav {
+    height: 4.5rem;
+    width: 100vw;
+    background-color: #036383;
+    
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    z-index: 10;
+    top: 0;
+}
+
+.nav-links li a:hover {
+    color: #036383;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    width: calc(100% - 5rem);
+    padding: 15px 0.7vw 0;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    margin: 0 0.7vw;
+    color: #fff;
+}
+
+
+
+@media screen and (max-width: 4800px) {
+    nav {
+        position: fixed;
+        z-index: 3;
+    }
+
+    .nav-links {
+        position: fixed;
+        background: #131418;
+        color: #fff;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(50px at 90% -20%);
+        -webkit-clip-path: circle(50px at 90% -10%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+
+    .nav-links.open {
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    .nav-links li:nth-child(1) {
+        transition: all 0.5s ease 0.2s;
+    }
+
+    .nav-links li:nth-child(2) {
+        transition: all 0.5s ease 0.4s;
+    }
+
+    .nav-links li:nth-child(3) {
+        transition: all 0.5s ease 0.6s;
+    }
+
+    .nav-links li:nth-child(4) {
+        transition: all 0.5s ease 0.7s;
+    }
+
+    .nav-links li:nth-child(5) {
+        transition: all 0.5s ease 0.8s;
+    }
+
+    .nav-links li:nth-child(6) {
+        transition: all 0.5s ease 0.9s;
+        margin: 0;
+    }
+
+    li.fade {
+        opacity: 1;
+    }
+
+    .nav-links li.fade {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        padding: 5px 25px 6px 10px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        background-color: #11111115;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        margin-left: 10px;
+    }
+    .nav-item {
+        margin: 10px;
+        font-size: 18px;
+        color: #fff;
+    }
+}
+
