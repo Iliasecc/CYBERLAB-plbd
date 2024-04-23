@@ -146,92 +146,21 @@ runPython.addEventListener("click", async function () {
 });
 
 function submitQuiz() {
-    var quizForm = document.getElementById('quizForm');
-    var userAnswers = [];
-    for (var i = 0; i < quizForm.elements.length; i++) {
-        var element = quizForm.elements[i];
-        if (element.type === 'radio' && element.checked) {
-            userAnswers.push(element.value);
-        }
-    }
-
-    var correctAnswers = ['a', 'a', 'c', 'c', 'b']; // Réponses correctes pour chaque question
-    var score = 0;
-    for (var j = 0; j < userAnswers.length; j++) {
-        if (userAnswers[j] === correctAnswers[j]) {
-            score++;
-        }
-    }
-    if (document.fullscreenElement) {
-        // Quitter le mode plein écran
-        toggleFullScreen('results-section');
-        // Définir l'arrière-plan à blanc
-        var resultsSection = document.querySelector('.results-section');
-        resultsSection.style.backgroundColor = 'white';
-    }
-    var resultsMessage;
-    if (score < 4) {
-        resultsMessage = "😕 Dommage ! Vous devez obtenir au moins 4 bonnes réponses pour valider votre TP. Veuillez retenter votre chance.";
-        showResultsMessage(resultsMessage, 'red');
-    } else {
-        resultsMessage = "🎉 Excellent travail ! Vous avez obtenu " + score + " bonnes réponses. Il ne vous reste plus qu'à déposer votre compte rendu.";
-        showResultsMessage(resultsMessage, 'green');
-        animateCelebration();
-    }
-    if (score >= 4) {
-    // Afficher la zone de dépôt de PDF
+    document.getElementById("launchQuizBtn").style.display = "none";
     document.querySelector('form[action="/submit"]').style.display = 'block';
     document.querySelector('.results-section').style.display = 'none';
     document.getElementById('aiResponse').style.display = 'block';
+    window.location.href = "submit.html"
+    
 
 }
 
-}
-
-function showResultsMessage(message, color) {
-    var resultsPopup = document.createElement('div');
-    resultsPopup.classList.add('results-popup');
-    resultsPopup.style.backgroundColor = color;
-
-    var messageElement = document.createElement('p');
-    messageElement.textContent = message;
-    resultsPopup.appendChild(messageElement);
-
-    var okButton = document.createElement('button');
-    okButton.textContent = 'OK';
-    okButton.style.color = color === 'red' ? 'red' : 'green'; // Définir la couleur du bouton OK
-    okButton.style.fontSize = '16px'; // Diminuer la taille de la police du bouton OK
-    okButton.style.padding = '5px 10px'; // Ajouter un peu de rembourrage au bouton OK
-    okButton.style.border = 'none'; // Supprimer la bordure du bouton OK
-    okButton.style.borderRadius = '5px'; // Ajouter une bordure arrondie au bouton OK
-    okButton.style.cursor = 'pointer'; // Changer le curseur lorsque survolé
-    okButton.addEventListener('click', function() {
-        resultsPopup.remove();
-    });
-    resultsPopup.appendChild(okButton);
-
-    document.body.appendChild(resultsPopup);
-}
 
 
 
 
-function animateCelebration() {
-    var celebration = document.createElement('div');
-    celebration.classList.add('celebration');
-    document.body.appendChild(celebration);
-    for (var i = 0; i < 300; i++) {
-        var confetti = document.createElement('div');
-        confetti.classList.add('confetti');
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
-        confetti.style.animationDelay = Math.random() * 2 + 's';
-        celebration.appendChild(confetti);
-    }
-    setTimeout(function() {
-        celebration.remove();
-    }, 5000);
-}
+
+
 
 
 

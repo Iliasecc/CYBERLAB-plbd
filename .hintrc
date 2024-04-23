@@ -33,6 +33,12 @@
           "text-emphasis-color"
         ]
       }
+    ],
+    "axe/structure": [
+      "default",
+      {
+        "listitem": "off"
+      }
     ]
   }
 }

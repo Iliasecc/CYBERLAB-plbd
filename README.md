@@ -40,3 +40,27 @@ window.watsonAssistantChatOptions = {
 function logout() {
     window.location.href = "index.html";
 }
+
+
+document.getElementById('startLiveVideoButton').addEventListener('click', function() {
+    var videoElement = document.getElementById('liveVideo');
+    
+    // Vérifier si le flux vidéo est déjà en cours
+    if (videoStream && !videoStream.paused) {
+        // Si c'est le cas, arrêtez le flux vidéo
+        videoStream.getTracks().forEach(track => track.stop());
+        videoStream = null;
+        videoElement.srcObject = null; // Assurez-vous de vider la source vidéo
+    } else {
+        // Si ce n'est pas le cas, accédez à la webcam de l'utilisateur
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                // Mettre le flux vidéo de la webcam dans la balise vidéo
+                videoElement.srcObject = stream;
+                videoStream = stream; // Stocker le flux vidéo dans la variable
+            })
+            .catch(function(error) {
+                console.error('Erreur lors de l\'accès à la webcam :', error);
+            });
+    }
+});

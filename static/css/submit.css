@@ -15,7 +15,7 @@ body {
     position: absolute;
     top: 80px;
     right: 20px; /* Alignement à droite */
-    width: 350px;
+    width: 380px;
     max-width: 360px;
     height: 470px;
     max-height: 500px;
@@ -61,12 +61,12 @@ main {
     font-family: Arial, sans-serif !important; 
     text-decoration: none;
     color: #feffff;
-    font-size: 18px;
-    margin-top: 6px;
-    margin-right: 10px;
+    font-size: 15px;
+    margin-top: 8px;
+    margin-right: 0px;
     cursor: pointer;
     transition: color 0.3s;
-    margin-left: 60px;
+    margin-left: 35px;
     border: none;
     background-color: transparent;
 }
@@ -89,16 +89,16 @@ textarea {
 }
 .nav-title {
     font-size: 16px; /* Adjust font size */
-    background: linear-gradient(to right, #ffffff, #e9bfe7, #aa7b9c,#995588, #9e3870); /* Background gradient */
+    background: linear-gradient(to right, #ffffff, #e9bfe7, #a38399); /* Background gradient */
     -webkit-background-clip: text; /* Apply gradient to text (for Chrome/Safari) */
     -webkit-text-fill-color: transparent; /* Transparent text color (for Chrome/Safari) */
     background-clip: text; /* Apply gradient to text (for other browsers) */
-    text-fill-color: transparent; /* Transparent text color (for other browsers) */
+     
     font-weight: bold;
     text-align: right;
-    padding: 0 25px;
+    
     margin-top: 6px;
-    border-left: 1px solid #ffffff; /* Optional divider between title and buttons */
+    /* Optional divider between title and buttons */
     font-family: 'Permanent Marker', cursive; /* Bizarre font style */
      /* Subtle text shadow */
     /* Optional animation (uncomment to add): */
@@ -151,7 +151,7 @@ nav {
     display: flex;
     list-style: none;
     width: calc(100% - 5rem);
-    padding: 15px 0.7vw 0;
+    padding: 0;
     align-items: center;
     text-transform: uppercase;
     font-size: 14px;
@@ -159,7 +159,7 @@ nav {
 
 .nav-links li a {
     text-decoration: none;
-    margin: 0 0.7vw;
+    margin: 0 ;
     color: #fff;
 }
 

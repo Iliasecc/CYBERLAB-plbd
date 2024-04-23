@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="author" content="Swarup Mahato" >
+<title>Swarup Quiz-App</title>
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Google Sans" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+<style>
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    }
+    body {
+    font-family:Google Sans,sans-serif;
+    line-height:1.3;
+    font-size:16px;
+    background: linear-gradient(to right top, #1a1a1a, #242323, #424242);
+    color: #333;
+    
+    }
+    button {
+     display:inline-block;
+     outline:none;
+     border:none;
+     padding:10px 25px;
+     transition: 300ms ease-in;
+    }
+    img {
+     max-width:100%;
+    }
+    section {
+     min-height:100vh;
+     width:100%;
+     max-width:420px;
+     margin:0 auto;
+     padding:20px;
+    }
+    .sec2 ,.sec3 ,.sec4 ,.sec5, .sec6 {
+     display:none;
+    }
+    .sec1, .sec2{
+      background: linear-gradient(to right, #1a1a1a, #333);
+     text-align:center;
+    }
+    .sec1 p, .sec2 p{
+     font-size:19px;
+     color:#ffffff;
+     margin-bottom:30px;
+    }
+    .input {
+     outline:none;
+     border:2px solid #f2d533;
+     width:100%;
+     padding:10px;
+     font-size:16px;
+     margin-bottom:25px;
+    }
+    .sec1 h3 {
+     margin-top:-25px;
+     margin-bottom:10px;
+     color:#f2d533;
+     font-size:24px;
+    }
+    .sec3 {
+     background:linear-gradient(252deg, rgba(69, 69, 69, 0.03) 0%, rgba(69, 69, 69, 0.03) 50%,rgba(47, 47, 47, 0.03) 50%, rgba(47, 47, 47, 0.03) 100%),linear-gradient(335deg, rgba(66, 66, 66, 0.09) 0%, rgba(66, 66, 66, 0.09) 50%,rgba(188, 188, 188, 0.09) 50%, rgba(188, 188, 188, 0.09) 100%),linear-gradient(223deg, rgba(194, 194, 194, 0.08) 0%, rgba(194, 194, 194, 0.08) 50%,rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.08) 100%),linear-gradient(82deg, rgba(27, 27, 27, 0.01) 0%, rgba(27, 27, 27, 0.01) 50%,rgba(197, 197, 197, 0.01) 50%, rgba(197, 197, 197, 0.01) 100%),linear-gradient(281deg, rgba(3, 3, 3, 0.09) 0%, rgba(3, 3, 3, 0.09) 50%,rgba(198, 198, 198, 0.09) 50%, rgba(198, 198, 198, 0.09) 100%),linear-gradient(319deg, rgba(47, 47, 47, 0.01) 0%, rgba(47, 47, 47, 0.01) 50%,rgba(89, 89, 89, 0.01) 50%, rgba(89, 89, 89, 0.01) 100%),linear-gradient(278deg, rgba(243, 243, 243, 0.06) 0%, rgba(243, 243, 243, 0.06) 50%,rgba(63, 63, 63, 0.06) 50%, rgba(63, 63, 63, 0.06) 100%),linear-gradient(38deg, rgba(81, 81, 81, 0.09) 0%, rgba(81, 81, 81, 0.09) 50%,rgba(201, 201, 201, 0.09) 50%, rgba(201, 201, 201, 0.09) 100%),linear-gradient(33deg, rgba(168, 168, 168, 0.08) 0%, rgba(168, 168, 168, 0.08) 50%,rgba(129, 129, 129, 0.08) 50%, rgba(129, 129, 129, 0.08) 100%),linear-gradient(0deg, #1a1a1a, #333);
+    }
+    .sec4 {
+      background:linear-gradient(252deg, rgba(69, 69, 69, 0.03) 0%, rgba(69, 69, 69, 0.03) 50%,rgba(47, 47, 47, 0.03) 50%, rgba(47, 47, 47, 0.03) 100%),linear-gradient(335deg, rgba(66, 66, 66, 0.09) 0%, rgba(66, 66, 66, 0.09) 50%,rgba(188, 188, 188, 0.09) 50%, rgba(188, 188, 188, 0.09) 100%),linear-gradient(223deg, rgba(194, 194, 194, 0.08) 0%, rgba(194, 194, 194, 0.08) 50%,rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.08) 100%),linear-gradient(82deg, rgba(27, 27, 27, 0.01) 0%, rgba(27, 27, 27, 0.01) 50%,rgba(197, 197, 197, 0.01) 50%, rgba(197, 197, 197, 0.01) 100%),linear-gradient(281deg, rgba(3, 3, 3, 0.09) 0%, rgba(3, 3, 3, 0.09) 50%,rgba(198, 198, 198, 0.09) 50%, rgba(198, 198, 198, 0.09) 100%),linear-gradient(319deg, rgba(47, 47, 47, 0.01) 0%, rgba(47, 47, 47, 0.01) 50%,rgba(89, 89, 89, 0.01) 50%, rgba(89, 89, 89, 0.01) 100%),linear-gradient(278deg, rgba(243, 243, 243, 0.06) 0%, rgba(243, 243, 243, 0.06) 50%,rgba(63, 63, 63, 0.06) 50%, rgba(63, 63, 63, 0.06) 100%),linear-gradient(38deg, rgba(81, 81, 81, 0.09) 0%, rgba(81, 81, 81, 0.09) 50%,rgba(201, 201, 201, 0.09) 50%, rgba(201, 201, 201, 0.09) 100%),linear-gradient(33deg, rgba(168, 168, 168, 0.08) 0%, rgba(168, 168, 168, 0.08) 50%,rgba(129, 129, 129, 0.08) 50%, rgba(129, 129, 129, 0.08) 100%),linear-gradient(0deg, #1a1a1a, #333);
+     }
+     .sec5 {
+      background:linear-gradient(252deg, rgba(69, 69, 69, 0.03) 0%, rgba(69, 69, 69, 0.03) 50%,rgba(47, 47, 47, 0.03) 50%, rgba(47, 47, 47, 0.03) 100%),linear-gradient(335deg, rgba(66, 66, 66, 0.09) 0%, rgba(66, 66, 66, 0.09) 50%,rgba(188, 188, 188, 0.09) 50%, rgba(188, 188, 188, 0.09) 100%),linear-gradient(223deg, rgba(194, 194, 194, 0.08) 0%, rgba(194, 194, 194, 0.08) 50%,rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.08) 100%),linear-gradient(82deg, rgba(27, 27, 27, 0.01) 0%, rgba(27, 27, 27, 0.01) 50%,rgba(197, 197, 197, 0.01) 50%, rgba(197, 197, 197, 0.01) 100%),linear-gradient(281deg, rgba(3, 3, 3, 0.09) 0%, rgba(3, 3, 3, 0.09) 50%,rgba(198, 198, 198, 0.09) 50%, rgba(198, 198, 198, 0.09) 100%),linear-gradient(319deg, rgba(47, 47, 47, 0.01) 0%, rgba(47, 47, 47, 0.01) 50%,rgba(89, 89, 89, 0.01) 50%, rgba(89, 89, 89, 0.01) 100%),linear-gradient(278deg, rgba(243, 243, 243, 0.06) 0%, rgba(243, 243, 243, 0.06) 50%,rgba(63, 63, 63, 0.06) 50%, rgba(63, 63, 63, 0.06) 100%),linear-gradient(38deg, rgba(81, 81, 81, 0.09) 0%, rgba(81, 81, 81, 0.09) 50%,rgba(201, 201, 201, 0.09) 50%, rgba(201, 201, 201, 0.09) 100%),linear-gradient(33deg, rgba(168, 168, 168, 0.08) 0%, rgba(168, 168, 168, 0.08) 50%,rgba(129, 129, 129, 0.08) 50%, rgba(129, 129, 129, 0.08) 100%),linear-gradient(0deg, #1a1a1a, #333);
+     }
+     .sec6 {
+      background:linear-gradient(252deg, rgba(69, 69, 69, 0.03) 0%, rgba(69, 69, 69, 0.03) 50%,rgba(47, 47, 47, 0.03) 50%, rgba(47, 47, 47, 0.03) 100%),linear-gradient(335deg, rgba(66, 66, 66, 0.09) 0%, rgba(66, 66, 66, 0.09) 50%,rgba(188, 188, 188, 0.09) 50%, rgba(188, 188, 188, 0.09) 100%),linear-gradient(223deg, rgba(194, 194, 194, 0.08) 0%, rgba(194, 194, 194, 0.08) 50%,rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.08) 100%),linear-gradient(82deg, rgba(27, 27, 27, 0.01) 0%, rgba(27, 27, 27, 0.01) 50%,rgba(197, 197, 197, 0.01) 50%, rgba(197, 197, 197, 0.01) 100%),linear-gradient(281deg, rgba(3, 3, 3, 0.09) 0%, rgba(3, 3, 3, 0.09) 50%,rgba(198, 198, 198, 0.09) 50%, rgba(198, 198, 198, 0.09) 100%),linear-gradient(319deg, rgba(47, 47, 47, 0.01) 0%, rgba(47, 47, 47, 0.01) 50%,rgba(89, 89, 89, 0.01) 50%, rgba(89, 89, 89, 0.01) 100%),linear-gradient(278deg, rgba(243, 243, 243, 0.06) 0%, rgba(243, 243, 243, 0.06) 50%,rgba(63, 63, 63, 0.06) 50%, rgba(63, 63, 63, 0.06) 100%),linear-gradient(38deg, rgba(81, 81, 81, 0.09) 0%, rgba(81, 81, 81, 0.09) 50%,rgba(201, 201, 201, 0.09) 50%, rgba(201, 201, 201, 0.09) 100%),linear-gradient(33deg, rgba(168, 168, 168, 0.08) 0%, rgba(168, 168, 168, 0.08) 50%,rgba(129, 129, 129, 0.08) 50%, rgba(129, 129, 129, 0.08) 100%),linear-gradient(0deg, #1a1a1a, #333);
+     }
+    .box {
+     width:100%;
+     background:#fcfcfc;
+     padding:20px;
+     border-radius:10px;
+     margin-top:50px;
+     text-align:center;
+    }
+    .box__header {
+     display:flex;
+     justify-content: space-between;
+     margin-bottom:50px;
+     font-size:14px;
+     color:#555;
+     font-weight:bold;
+    }
+    .box__header div {
+     padding:5px 0;
+    }
+    .question {
+     margin-bottom:30px;
+    }
+    ul{
+     list-style:none;
+    }
+    .quiz li {
+     padding:15px;
+     margin-bottom:12px;
+     border-radius:8px;
+     color:#666;
+     background:#fff;
+     box-shadow:0 0 2px rgba(0,0,0,0.2);
+     transition: 300ms ease-in;
+    }
+    .quiz li.select {
+     background:#68c9c6;
+     color:#fff;
+     animation:zoomOut 300ms ease;
+    }
+    
+    @keyframes zoomOut{
+     0% ,100%{
+      transform:scale(1);
+     }
+     50% {
+     transform:scale(0.8);
+     }
+    }
+    .submit {
+    width:100%;
+    padding:15px;
+    margin-bottom:12px;
+    border-radius:8px;
+    color:#fff;
+    background:#036383;
+    text-transform:uppercase;
+    margin-bottom:20px;
+    }
+    .certificate {
+     position:relative;
+     width:100%;
+     height:220px;
+     width:320px;
+     background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvXc9FwiY9FLZBAkVVbblE0m6gLlFYhXAgKg&usqp=CAU");
+     background-size:cover;
+     background-position:center center;
+     margin:20px 0;
+     padding:20px;
+     text-align:center;
+     color:#555;
+    }
+    .certificate h4 {
+     margin-top:36px;
+     color:#000;
+     margin-bottom:8px;
+    }
+    #date {
+     position:absolute;
+     left:40px;
+     bottom:25px;
+     font-size:12px;
+     }
+     .sin {
+     position:absolute;
+     right:40px;
+     bottom:25px;
+     font-family:cursive;
+     text-decoration:underline;
+     }
+    .btn {
+     padding:10px 20px;
+     margin-bottom:12px;
+     border-radius:2px;
+     color:#fff;
+     background:#036383;
+     text-transform:uppercase;
+     margin-bottom:20px;
+    }
+    button:hover {
+     opacity:0.9;
+     animation:zoomOut 300ms ease;
+    }
+    .red {
+     color:#f00;
+    }
+    .green {
+     color:#00ff04;
+    }
+    .ans-list {
+     margin:20px 0;
+    }
+    .ans-list li{
+     padding:15px;
+     margin-bottom:15px;
+     border-radius:2px;
+     color:#666;
+     background:#fff;
+     box-shadow:0 0 2px rgba(0,0,0,0.2);
+     line-height:1.4;
+    }
+    .flex {
+     display:flex;
+     justify-content: space-between;
+     font-size:16px;
+     margin-bottom:15px;
+    }
+    
+    .box__header .toast {
+     display:inline-block;
+     background:#f05577;
+     padding:5px 15px;
+     border-radius:20px;
+     color:#fff;
+     opacity:0.7;
+     display:none;
+    }
+    .btn1 {
+     background:#f2d533;
+     color:#000;
+     font-weight:bold;
+     border-radius:20px;
+     padding:12px 25px;
+    }
+    .des {
+     margin:15px 0;
+     text-align:left;
+    }
+    .mb-1 {
+     margin-bottom:1rem;
+    }
+    h3.mb-1 {
+     color:#f05577;
+     text-transform:capitalize;
+     border-bottom:1px solid #999;
+     padding-bottom:5px;
+     display:inline-block;
+     font-size:20px;
+    }
+    .great {
+     text-align:center;
+     font-size:4rem;
+     color:#f05577;
+     opacity:0.7;
+    
+    }
+    .confetti-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+  }
+  
+  .confetti {
+      width: 10px;
+      height: 10px;
+      background-color: #f0f;
+      position: absolute;
+      border-radius: 50%;
+      animation: fall 8s linear infinite; /* Ajustez la durée de l'animation ici */
+  }
+  
+  @keyframes fall {
+      0% {
+          transform: translateY(-100vh);
+      }
+      100% {
+          transform: translateY(100vh);
+      }
+  }
+  
+    
+</style>
+</head>
+<body>
+
+  <section class="sec1">
+    <div>
+      <img src="https://github.com/Iliasecc/CYBERLAB/blob/main/image/cyberlog.jpg?raw=true" alt="" style="margin-bottom:50px;margin-top:50px; border-radius: 50%; width: 100px;">
+  </div>
+  
+    <div>
+      <h3>TP1 Cyberlab: Contrôle du Bras Robotique Ned2</h3>
+      <p>Bienvenue dans le quiz de compréhension du TP1 sur Cyberlab. Êtes-vous prêt à vérifier votre compréhension et votre exécution du TP? C'est le moment de démontrer vos compétences.</p>
+      <button class="btn btn1 continue-btn">Continuer</button>
+    </div>
+  </section>
+  
+  <section class="sec2">
+    <div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTYbCNJQUfl4xzwdfgyVff-isMo2F6LzZUeJA&usqp" alt="">
+    </div>
+    <p>Vous n'etes qu'à un clic de commencer le quizz! Veuillez sélectionner votre réponse et cliquer sur Soumettre.</p>
+    <div>
+      <input type="text" class="input" placeholder="Entrez votre nom">
+    </div>
+    <button class="btn btn1 start-quiz">Commencer le Quiz</button>
+  </section>
+<section class="sec3" >
+  <div class="box" >
+    <div class="box__header" >
+      <div class="index" >1/10</div>
+      <div class="toast" ></div>
+      <div class="time" >00:01</div>
+    </div>
+    <h3 class="question" ></h3>
+    <ul class="quiz" >
+    </ul>
+    <button class="submit">Continue</button>
+  </div>
+</section>
+
+<section class="sec4">
+  <div class="des" >
+    <h3 class="mb-1 name" >Cyberlab</h3>
+    <p class="mb-1" style="color:#2cd31d" >Félicitations, vous avez fait un excellent travail ! 🎉 Il ne vous reste plus qu'à déposer votre compte rendu. <br> Vous avez débloqué un nouveau certificat.</p>
+  </div>
+  <button type="button" onclick="submitQuiz()" style="margin-bottom:5px;align-self: start; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #053f03, #409c15) 0 0 / 200% 100% no-repeat;transition: background-position 0.15s;">Déposer le compte rendu</button>
+  <button class="check-ans btn" style="align-self: start; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #180872, #15939c) 0 0 / 200% 100% no-repeat;transition: background-position 0.15s;" >Voir tes Réponses</button>
+  
+  <h3 style="color:#ffffff;margin-top:20px;"> Ton Certificat</h3>
+  <div class="certificate" >
+    <h4>Cyberlab TP1 Quizz</h4>
+    <p id="name">Cyberlab</p>
+    <p id="score">Score: 50%</p>
+    <small id="id">Test Id : 202020</small>
+    <small id="date">30-06-2023</small>
+    <small class="sin" >CYBERLAB</small>
+  </div>
+</section>
+<section class="sec6">
+  <div class="des">
+    <h3 class="mb-1 name" style="color: #ff0000; font-size: 2.5rem;">Cyberlab</h3>
+    <p class="mb-1" style="color: #ffffff; font-size: 1.2rem;">Vous avez obtenu un score de <span class="score-percentage">%</span> de réponses correctes.</p>
+    
+    <p class="mb-1" style="color: #ffffff; font-size: 1.2rem;">Votre performance lors du test n'a pas atteint le seuil requis pour valider le TP. Pour valider votre travail et déposer votre compte rendu, vous devez obtenir un score d'au moins 80%. Ne vous découragez pas, utilisez cette expérience pour vous améliorer. Vous pouvez retenter le test et viser l'excellence. Nous avons confiance en votre capacité à réussir. Bonne chance !</p>
+  </div>
+  <button class="btn" onclick="retryQuiz()" style="align-self: start; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #ea3333, #aa3333) 0 0 / 200% 100% no-repeat;transition: background-position 0.15s;">Retenter Votre Chance</button>
+</section>
+
+
+<section class="sec5">
+  <div class="flex">
+    <h2 style="color:#ffffff" >Tes Réponses</h2>
+    <h2 class="sc"></h2>
+  </div>
+  <p class="mb-1" style="color:#ffffff">Si votre réponse est incorrecte, nous ne pouvons pas afficher la réponse correcte. Ceci est notre politique de confidentialité.</p>
+  <ul class="ans-list"></ul>
+  <button class="btn back-btn" style="align-self: start; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #180872, #15939c) 0 0 / 200% 100% no-repeat;transition: background-position 0.15s;">Retour</button>
+</section>
+
+
+
+<!-- script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+  // Do not see the answer
+  const ques = [
+    { que: "Sensor for surface defect detection:", option: ["optical sensor", "inductive sensor", "laser sensor"], crt: 0 },
+    { que: "Communication protocol for control data:", option: ["CAN bus", "Modbus", "Ethernet/IP"], crt: 0 },
+    { que: "Main function of image processing algorithm:", option: ["contour detection", "spectral analysis", "image segmentation"], crt: 2 },
+    { que: "Operating principle of inductive sorting technology:", option: ["sorting by electrical conductivity", "sorting by magnetic resonance", "sorting by density measurement"], crt: 2 },
+    { que: "Method for 3D part detection:", option: ["stereoscopic imaging", "Lidar", "Sonar"], crt: 1 }
+  ];
+
+  let score = 0, index = 0, name = "", answer = [], times;
+
+  $(document).ready(function () {
+    $(".continue-btn").click(function () {
+      $(".sec1").fadeOut();
+      $(".sec2").fadeIn();
+    });
+    $(".start-quiz").click(function () {
+      name = $(".input").val();
+      if (name === '') {
+        alert("Veuillez entrer votre nom");
+        return;
+      }
+      $(".sec2").fadeOut();
+      $(".sec3").fadeIn();
+      newQuestion();
+      startTimes();
+    });
+    $(".quiz").on("click", "li", function () {
+      $(".quiz .select").removeClass("select");
+      $(this).addClass("select");
+    });
+    $(".submit").click(function () {
+      const select = $(".quiz li").hasClass("select");
+      if (!select) {
+        alert("Veuillez sélectionner une option");
+        return;
+      }
+      const key = $(".quiz .select").attr("data-key");
+      checkAns(key);
+    });
+    $(".check-ans").click(function () {
+      $(".sec4").fadeOut();
+      $(".sec5").fadeIn();
+      showYourAns();
+    });
+    $(".check-ans").click(function () {
+      $(".sec6").fadeOut();
+      $(".sec5").fadeIn();
+      showYourAns();
+    });
+    $(".back-btn").click(function () {
+      $(".sec5").fadeOut();
+      $(".sec4").fadeIn();
+    });
+
+    $(".see-answers").click(function () {
+      $(".sec4").fadeOut();
+      $(".sec5").fadeIn();
+      showYourAns();
+    });
+  });
+
+  let s = 0, m = "0" + 0;
+
+  function showTime() {
+    s++;
+    if (s >= 60) {
+      s = 0;
+      m++;
+      m = m < 10 ? "0" + m : m;
+    }
+    s = s < 10 ? "0" + s : s;
+    $(".time").text(m + ":" + s);
+  }
+
+  function submitQuiz() {
+    window.location.href = "{{ url_for('submit') }}";
+  }
+
+  function startTimes() {
+    times = setInterval(showTime, 1000);
+  }
+
+  function newQuestion() {
+    const que = ques[index];
+    showIndex();
+    $(".question").text(que.que);
+    $(".quiz").html("");
+    que.option.forEach((q, i) => {
+      const li = document.createElement('li');
+      li.setAttribute('data-key', i);
+      li.textContent = q;
+      $(".quiz").append(li);
+    });
+  }
+
+  function checkAns(key) {
+    const que = ques[index];
+    answer.push(key);
+    if (que.crt == key) {
+      score++;
+      makeToast("Correct");
+    } else {
+      makeToast("Incorrect");
+    }
+    index++;
+    if (index < ques.length) {
+      newQuestion();
+    } else {
+      showResult();
+      clearInterval(times);
+    }
+  }
+
+  function showIndex() {
+    $(".index").text(1 + index + "/" + ques.length);
+  }
+
+  function showResult() {
+    $(".sec3").fadeOut();
+    if (score > 3) {
+      $(".sec4").fadeIn();
+      $("#name").text(name);
+      $(".name").text(name);
+      const scores = Math.round(score / ques.length * 100);
+      const grt = scores < 25 ? "Nice" : scores < 50 ? "Good" : scores < 76 ? "Very Good" : "Excellent";
+      $("#score").text("Score : "+ scores +"%");
+      $("#id").text("Test Id : "+ Math.ceil(Math.random() * 20000));
+      let date = new Date();
+      let today = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
+      $("#date").text(today);
+      $(".great").text(grt);
+      
+    } else {
+      $(".sec6").fadeIn();
+      $("#name").text(name);
+      $(".name").text(name);
+      const scores = Math.round(score / ques.length * 100);
+      const grt = scores < 80 ? "Nice" : scores < 85 ? "Good" : scores < 90 ? "Very Good" : "Excellent";
+      $("#score").text("Score: " + scores + "%"); // Assurez-vous que cette ligne met à jour correctement le score
+      $("#id").text("Test Id : " + Math.ceil(Math.random() * 20000));
+      let date = new Date();
+      let today = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
+      $("#date").text(today);
+      $(".great").text(grt);
+      $(".score-percentage").text(scores + "%");
+    }
+
+}
+
+
+  function showYourAns() {
+    $(".ans-list").html("");
+    $(".sc").text(score + "/" + ques.length);
+    ques.forEach((que, i) => {
+      const li = document.createElement('li');
+      const p = document.createElement('p');
+      const span = document.createElement('span');
+      p.textContent = 1 + i + " : " + que.que;
+      const chrt = que.crt == answer[i] ? '👉' : '❌';
+      span.textContent = chrt + " " + que.option[answer[i]];
+      const cls = que.crt == answer[i] ? 'green' : 'red';
+      span.classList.add(cls);
+      li.appendChild(p);
+      li.appendChild(span);
+      $(".ans-list").append(li);
+    });
+  }
+
+  function makeToast(txt) {
+    $(".toast").text(txt);
+    $(".toast").fadeIn();
+    setTimeout(() => $(".toast").fadeOut(), 1000);
+  }
+
+    
+  
+  
+  
+  function retryQuiz() {
+    window.location.reload();
+  }
+</script>
+
+
+</body>
+</html>
+
+ 

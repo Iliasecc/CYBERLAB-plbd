@@ -10,16 +10,18 @@
     overflow-x: auto;
     overflow-y: auto;
 }
-/* Add this rule to make the logo image a circle */
-.logo-image {
-    width: 70px;
-    height: 70px;
-    border: none;
-    margin-right: 10px; /* Ajustez cette valeur selon vos besoins */
-    border-radius: 50%;
-    object-fit: cover; 
-    /* Make the image a circle */
+nav {
+    height: 3.12rem !important;
+    width: 100vw!important;
+    background-color: #036383;
+    
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    z-index: 10;
+    top: 0;
 }
+/* Add this rule to make the logo image a circle */
 
 /* Styles CSS */
 .default-background {
@@ -34,28 +36,83 @@
     background-position: center; /* Centrer l'image */
      /* Largeur de l'arrière-plan */
 }
-
-
-
-
-
-
-nav {
-    height: 4.5rem;
-    width: 100vw;
-    background-color: #036383; /* Couleur de fond du nav - Bleu-gris */
-    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
+/* Stylo icône */
+.pen-icon {
+    cursor: pointer;
     position: fixed;
-    z-index: 10;
-}
-.nav-links li a {
-    color: #ffffff; /* Couleur des liens du nav - Blanc */
+    top: 12px;
+    right: 20px;
+    z-index: 1000;
+    /* Assurez-vous que l'icône de stylo apparaît au-dessus du reste du contenu */
+    
+    
 }
 
-.nav-links li a:hover {
-    color: #ffffff; /* Couleur de survol des liens - Bleu clair */
+/* Note book */
+.notebook {
+    display: none; /* Cacher le bloc-note par défaut */
+    position: fixed;
+    top: 10px;
+    right: 50px;
+    z-index: 1000; /* Assurez-vous que le bloc-note apparaît au-dessus du reste du contenu */
+    width: 300px;
+    max-height: 80vh; /* Limiter la hauteur à 80% de la hauteur de la fenêtre */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ajouter une ombre */
+    padding: 10px;
+    overflow-y: auto; /* Ajouter un défilement vertical si nécessaire */
 }
+
+.notebook.active {
+    display: block; /* Afficher le bloc-note lorsqu'il est actif */
+}
+
+#note-text {
+    width: 100%;
+    height: 200px; /* Hauteur initiale de la zone de texte */
+    margin-bottom: 10px; /* Marge inférieure pour le bouton */
+    resize: vertical; /* Autoriser le redimensionnement vertical */
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+#save-button {
+    width: 100%;
+    padding: 8px 10px;
+    background-color: #036383;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#save-button:hover {
+    background-color: #4b7bad; /* Changement de couleur au survol */
+}
+
+.color-button {
+    width: 20px;
+    height: 20px;
+    border: none;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 50%; /* Rendre les boutons ronds */
+}
+
+/* Bouton */
+#save-button {
+    width: 100%; /* Bouton de largeur */
+}
+
+
+
+
+
+
 
 main {
     padding-top: 5rem; /* Ajustez cette valeur en fonction de la hauteur de votre nav */
@@ -130,31 +187,7 @@ h1 {
  
  
  
- /*Styling Links*/
- .nav-links {
-    display: flex;
-    list-style: none;
-    width: calc(100% - 5rem); /* Ajustez la largeur totale en conséquence */
-    padding: 15px 1.2vw 0;
-    align-items: center ;
-    text-transform: uppercase;
-    font-size: 14px;
-    
- }
- .nav-links li a{
-    text-decoration: none;
-    margin: 0 1.2vw;
- }
 
- .nav-links li {
-    position: relative;
- }
- .nav-links li a:hover::before{
-    width: 80%;
- }
- .nav-links li:hover a {
-    color: #3ee6e6; /* Couleur différente au survol */
-}
 
  
  
@@ -254,17 +287,35 @@ iframe, img {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Example glow */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     background: linear-gradient(to right, #3c9cbd, #673ab7);
+
     position: absolute;
-    top: 10px;
-    left: 10px;
+    transform: translateX(120px);
     background-color: rgba(15, 15, 15, 0.5);
-    padding: 5px;
+    padding: 0.5rem 1.5rem;
     border-radius: 5px;
     font-size: 14px;
     font-weight: bold;
     opacity: 1;
     pointer-events: none;
     transition: opacity 0.3s;
+    z-index: 2;
+}
+.section-label1 {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Example glow */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #3c9cbd, #673ab7);
+
+    position: absolute;
+    
+    background-color: rgba(15, 15, 15, 0.5);
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.3s;
+   
 }
 .section-label:hover {
     background: linear-gradient(to right, #f9a825, #f44336); /* Example hover gradient */
@@ -455,19 +506,7 @@ label[for="inlineFormSelectPrefPython"] {
     padding: 15px 1Opx; /* Ajustez selon vos besoins */
 }
 
-.footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff; /* Set your desired background color */
-    color: black !important; /* Set your desired text color */
-    padding: 2px 0; /* Adjust the padding as needed */
-    text-align: center;
-    
-    font-size: 10px; /* Adjust the font size as needed */
-    box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
-}
+
 
 .question {
     margin-top: 28px; /* Ajoute un espace de 20 pixels en haut de chaque question */
@@ -571,12 +610,6 @@ label[for="inlineFormSelectPrefPython"] {
     
 }
 
-
-/* Style pour changer la couleur du texte dans le footer */
-.footer-text {
-    color: #131418; /* Couleur du texte */
-    font-family:'Roboto', sans-serif !important; 
-}
 
 
 

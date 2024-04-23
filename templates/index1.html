@@ -36,86 +36,8 @@
             transform: scale(1.05);
         }
 
-        .flip-container {
-            perspective: 500px;
-            height: 100%;
-        }
-
-        .flip-container:hover .flipper,
-        .flip-container.hover .flipper {
-            transform: rotateY(180deg);
-        }
-
-        .flip-container {
-            width: 320px;
-            height: 280px; /* Ajustement de la hauteur */
-        }
-        .front,
-        .back {
-            width: 320px;
-            height: 380px; /* Ajustement de la hauteur */
-        }
-
-        .flipper {
-            transition: 0.6s;
-            transform-style: preserve-3d;
-            position: relative;
-        }
-
-        .front,
-        .back {
-            backface-visibility: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-            overflow: auto; /* Ajout d'un défilement en cas de contenu dépassant */
-        }
-
-        .front {
-            z-index: 2;
-        }
-
-/* Ajoutez ce bloc de styles CSS à votre section style */
-        .back {
-            transform: rotateY(180deg);
-            color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            background: linear-gradient(to bottom right, #036383, #2196F3);
-            text-align: justify;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout de l'ombre */
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-        .back .access-tp-button {
-            background: linear-gradient(to bottom right, #4CAF50, #2196F3);
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            display: inline-block;
-            text-decoration: none;
-            margin-top: 10px;
-            transition: background 0.3s ease;
-        }
         
-        .back .access-tp-button:hover {
-            background: linear-gradient(to bottom right, #2196F3, #4CAF50);
-        }
-        
-        .back:hover {
-            transform: rotateY(180deg) scale(1.05); /* Effet d'agrandissement au survol */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Effet d'ombre plus prononcé au survol */
-        }
 
-
-        .back p {
-            margin-bottom: 0;
-            font-size: small;
-        }
-
-        .back-icon {
-            font-size: 24px;
-            margin-right: 5px;
-        }
 
         .navbar.is-primary {
             background-color: #036383;
@@ -131,17 +53,25 @@
             display: none;
          }
         .logo-container {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             overflow: hidden;
             margin-left: 5px;
+            margin-top: 7px;
         }
 
         .logo-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+        .footer {
+            background-color: #364f6b;
+            color: #fff;
+            padding: 5px 0;
+            height: 50px;
+            font-size: 10px; /* Réduire la taille de la police */
         }
         
         /* Ajoutez ce bloc de styles CSS à votre section style */
@@ -205,6 +135,7 @@
             }
 
         }
+
     </style>
 </head>
 <body>
@@ -217,6 +148,7 @@
   
     <div class="navbar-brand">
         <span style="color: #feffff; font-size: 25px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-family: 'Arial', sans-serif; text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5); transform: skewX(-5deg); margin-top:8px; margin-left:8px; margin-right:18px;">CYBERLAB</span>
+        
         <div class="hamburger">
             <div class="line1"></div>
             <div class="line2"></div>
@@ -250,129 +182,71 @@
 
 <!-- Contenu principal -->
 <section class="section">
-  <div class="container">
-    <h1 class="title has-text-centered" style="margin-bottom: 80px;">L'ESPACE NUMÉRIQUE D'APPRENTISSAGE EXPÉRIMENTAL</h1>
-    
-    <div class="columns is-multiline">
-        <!-- Expérience 1 -->
-        <div class="column is-4">
-            <div class="has-text-centered">
-                <p class="title is-5" style="margin-right: 50px;">Travail Pratique 1</p>
-            </div>
-            <div class="flip-container experience-img">
-                <div class="flipper">
-                    <div class="front">
-                        <a ><img src="https://docs.niryo.com/product/ned2/v1.0.0/en/_images/ecosystem_ned2.png" alt="Expérience 1"></a>
-                    </div>
-                    <div class="back">
-                        <p><span class="back-icon">&#128161;</span> Dans cette expérience, vous allez interagir avec un bras robotique nommé Ned2 capable de trier des pièces en fonction de leurs couleurs. Utilisez l'interface pour définir les critères de tri, observez la simulation en temps réel du processus de tri et recevez des informations en direct sur le statut du tri. Les résultats mettront en évidence l'efficacité du tri en fonction des paramètres définis.</p>
-                        <a href="{{ url_for('indexx') }}" class="access-tp-button">Accéder au TP</a>
-                    </div>
-                </div>
-            </div>
-           
-        </div>
-
-        <!-- Expérience 2 -->
-        <div class="column is-4">
-            <div class="has-text-centered ">
-                <p class="title is-5" style="margin-right: 50px;">Travail Pratique 2</p>
-            </div>
-            <div class="flip-container experience-img">
-                <div class="flipper">
-                    <div class="front">
-                        <a href="#"><img src="https://static.wixstatic.com/media/63de73_5f1df934be234efc8494f3563c04ba73~mv2.png/v1/fit/w_500,h_500,q_90/file.png" alt="Expérience 2"></a>
-                    </div>
-                    <div class="back">
-                        <p><span class="back-icon">&#128269;</span> Explorez le comportement des pendules simples et doubles. Interagissez avec les paramètres des pendules, observez les oscillations en temps réel et recevez des retours sur les caractéristiques mécaniques. Les résultats mettront en évidence les variations en fonction des paramètres que vous choisissez.</p>
-                        <a href="{{ url_for('index2') }}" class="access-tp-button">Accéder au TP</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Expérience 3 -->
-        <div class="column is-4">
-            <div class="has-text-centered ">
-                <p class="title is-5" style="margin-right: 50px;">Travail Pratique 3</p>
-            </div>
-            <div class="flip-container experience-img">
-                <div class="flipper">
-                    <div class="front">
-                        <a href="#"><img src="https://th.bing.com/th/id/OIP.nm7vRTmpRP2AE8e7IuRHOwHaFd?rs=1&pid=ImgDetMain" alt="Expérience 3"></a>
-                    </div>
-                    <div class="back">
-                        <p><span class="back-icon">&#128195;</span> Plongez dans le monde des circuits électroniques tels que les circuits RC (résistance-condensateur), RLC (résistance-inductance-condensateur), etc. Simulez ces circuits, ajustez les valeurs des composants, observez les réponses en direct et analysez les résultats pour une meilleure compréhension des concepts électroniques.</p>
-                        <a href="{{ url_for('index2') }}" class="access-tp-button">Accéder au TP</a>
-                    </div>
-                </div>
-            </div>
-        
-        </div>
-
-        <!-- Expérience 4 -->
-        <div class="column is-4">
-            <div class="has-text-centered ">
-                <p class="title is-5" style="margin-right: 50px;">Travail Pratique 4</p>
-            </div>
-            <div class="flip-container experience-img">
-                <div class="flipper">
-                    <div class="front">
-                        <a href="#"><img src="https://th.bing.com/th/id/OIP.jBji22-divMYfKkyUibnHwHaEM?rs=1&pid=ImgDetMain" alt="Expérience 4"></a>
-                    </div>
-                    <div class="back">
-                        <p><span class="back-icon">&#128640;</span> Explorez un interféromètre de Michelson utilisant un laser. Simulez différentes configurations, ajustez les paramètres, observez les interférences en direct et analysez les résultats. Recevez des informations en direct sur la phase des interférences pour mieux comprendre ces phénomènes.</p>
-                        <a href="{{ url_for('index2') }}" class="access-tp-button">Accéder au TP</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Expérience 5 -->
-        <div class="column is-4">
-            <div class="has-text-centered ">
-                <p class="title is-5" style="margin-right: 50px;">Travail Pratique 5</p>
-            </div>
-            <div class="flip-container experience-img">
-                <div class="flipper">
-                    <div class="front">
-                        <a href="#"><img src="https://robogenie.fr/wp-content/uploads/2018/11/cours-programmation-robotique-robogenie.jpg" alt="Expérience 5"></a>
-                    </div>
-                    <div class="back">
-                        <p><span class="back-icon">&#127958;</span> Programmez et contrôlez un robot logo capable de suivre une ligne prédéfinie et de ramasser des pièces. Développez le code de contrôle, simulez le mouvement du robot, interagissez avec les paramètres du parcours et observez le robot en action. Le retour en direct fournira des informations sur la trajectoire et la collecte des pièces.</p>
-                        <a href="{{ url_for('index2') }}" class="access-tp-button">Accéder au TP</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Expérience 6 -->
-        <div class="column is-4">
-            <div class="has-text-centered">
-                <p class="title is-5" style="margin-right: 50px;">Travail Pratique 6</p>
-            </div>
-            <div class="flip-container experience-img">
-                <div class="flipper">
-                    <div class="front">
-                        <a href="#"><img src="https://www.circuitbasics.com/wp-content/uploads/2016/03/Raspberry-Pi-DS18B20-Temperature-Sensor-Tutorial-DS18B20-LCD-Output.jpg" alt="Expérience 6"></a>
-                    </div>
-                    <div class="back">
-                        <p><span class="back-icon">🧪</span> Familiarisez-vous avec l'utilisation d'une carte Raspberry Pi et de divers capteurs. Explorez la simulation de l'interaction entre la Raspberry Pi et les capteurs, ajustez les configurations, observez les données en direct et analysez les résultats. Cette expérience vise à vous initier à l'utilisation pratique de la Raspberry Pi.</p>
-                        <a href="{{ url_for('index2') }}" class="access-tp-button">Accéder au TP</a>
-                    </div>
-                </div>
-            </div>
-  <!-- Ajoutez d'autres colonnes avec la même structure pour plus d'expériences -->
+    <div class="container">
+      <h1 class="title has-text-centered" style="margin-bottom: 80px;">L'ESPACE NUMÉRIQUE D'APPRENTISSAGE EXPÉRIMENTAL</h1>
+      
+      
+      <div class="columns is-multiline">
+          <div class="column is-4">
+              <div class="experience-img">
+                  <a href="{{ url_for('indexx') }}">
+                      <img src="https://docs.niryo.com/product/ned2/v1.0.0/en/_images/ecosystem_ned2.png" alt="Expérience 1">
+                  </a>
+              </div>
+              <div class="has-text-centered mt-2">
+                  <p>Travail Pratique 1</p>
+              </div>
+          </div>
+          
+          <div class="column is-4">
+              <div class="experience-img">
+                  <a href="{{ url_for('index2') }}"><img src="static/image/indisponible.jpeg" alt="Expérience 2"></a>
+              </div>
+              <div class="has-text-centered mt-2">
+                  <p>Travail Pratique 2</p>
+              </div>
+          </div>
+          <div class="column is-4">
+              <div class="experience-img">
+                  <a href="{{ url_for('index2') }}"><img src="static/image/indisponible.jpeg" alt="Expérience 3"></a>
+              </div>
+              <div class="has-text-centered mt-2">
+                  <p>Travail Pratique 3</p>
+              </div>
+          </div>
+          <div class="column is-4">
+              <div class="experience-img">
+                  <a href="{{ url_for('index2') }}"><img src="static/image/indisponible.jpeg" alt="Expérience 4"></a>
+              </div>
+              <div class="has-text-centered mt-2">
+                  <p>Travail Pratique 4</p>
+              </div>
+          </div>
+          <div class="column is-4">
+              <div class="experience-img">
+                  <a href="{{ url_for('index2') }}"><img src="static/image/indisponible.jpeg" alt="Expérience 5"></a>
+              </div>
+              <div class="has-text-centered mt-2">
+                  <p>Travail Pratique 5</p>
+              </div>
+          </div>
+          <div class="column is-4">
+              <div class="experience-img">
+                  <a href="{{ url_for('index2') }}"><img src="static/image/indisponible.jpeg" alt="Expérience 6"></a>
+              </div>
+              <div class="has-text-centered mt-2">
+                  <p>Travail Pratique 6</p>
+              </div>
+          </div>
+      </div>
     </div>
-  </div>
-</section>
-<footer class="footer">
-    <div class="content has-text-centered">
-        <p>Ce site est développé par le groupe plbd 26.</p>
-        <p>&copy; 2024 Tous droits réservés.</p>
-    </div>
-</footer>
+  </section>
+  <footer class="footer">
+      <div class="content has-text-centered">
+          <p>Ce site est développé par le groupe lbd 26.</p>
+          <p>&copy; 2024 Tous droits réservés.</p>
+      </div>
+  </footer>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const hamburger = document.querySelector(".hamburger");
