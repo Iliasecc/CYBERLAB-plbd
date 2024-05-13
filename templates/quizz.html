@@ -3,25 +3,27 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="author" content="Swarup Mahato" >
-<title>Swarup Quiz-App</title>
+<meta name="author" content="PLBD26" >
+<title>Quiz</title>
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Google Sans" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+
+
+<!-- Ajout de Bootstrap pour le carrousel -->
+
 <script src="script.js"></script>
 <style>
   *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    }
+  }
     body {
-    font-family:Google Sans,sans-serif;
-    line-height:1.3;
-    font-size:16px;
-    background: linear-gradient(to right top, #1a1a1a, #242323, #424242);
-    color: #333;
-    
-    }
+      font-family: 'Google Sans', sans-serif;
+      line-height: 1.3;
+      font-size: 16px;
+      background: linear-gradient(to right top, #D9E2EC, #BCCCDC, #9CB6C6, #7A9EAB, #5A8792);
+      color: #333;
+  }
     button {
      display:inline-block;
      outline:none;
@@ -33,19 +35,19 @@
      max-width:100%;
     }
     section {
-     min-height:100vh;
-     width:100%;
-     max-width:420px;
-     margin:0 auto;
-     padding:20px;
-    }
+      min-height: calc(100vh ); /* Ajustement pour l'espace ajouté en haut et en bas */
+      width: 100%;
+      max-width: 420px;
+      margin: 0px auto 0px; /* Ajout de plus d'espace en haut et un peu en bas */
+      padding: 20px;
+  }
     .sec2 ,.sec3 ,.sec4 ,.sec5, .sec6 {
      display:none;
     }
-    .sec1, .sec2{
-      background: linear-gradient(to right, #1a1a1a, #333);
-     text-align:center;
-    }
+    .sec1, .sec2 {
+      background: linear-gradient(to right,#036383, #79a8d8);
+      text-align: center;
+  }
     .sec1 p, .sec2 p{
      font-size:19px;
      color:#ffffff;
@@ -65,18 +67,9 @@
      color:#f2d533;
      font-size:24px;
     }
-    .sec3 {
-     background:linear-gradient(252deg, rgba(69, 69, 69, 0.03) 0%, rgba(69, 69, 69, 0.03) 50%,rgba(47, 47, 47, 0.03) 50%, rgba(47, 47, 47, 0.03) 100%),linear-gradient(335deg, rgba(66, 66, 66, 0.09) 0%, rgba(66, 66, 66, 0.09) 50%,rgba(188, 188, 188, 0.09) 50%, rgba(188, 188, 188, 0.09) 100%),linear-gradient(223deg, rgba(194, 194, 194, 0.08) 0%, rgba(194, 194, 194, 0.08) 50%,rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.08) 100%),linear-gradient(82deg, rgba(27, 27, 27, 0.01) 0%, rgba(27, 27, 27, 0.01) 50%,rgba(197, 197, 197, 0.01) 50%, rgba(197, 197, 197, 0.01) 100%),linear-gradient(281deg, rgba(3, 3, 3, 0.09) 0%, rgba(3, 3, 3, 0.09) 50%,rgba(198, 198, 198, 0.09) 50%, rgba(198, 198, 198, 0.09) 100%),linear-gradient(319deg, rgba(47, 47, 47, 0.01) 0%, rgba(47, 47, 47, 0.01) 50%,rgba(89, 89, 89, 0.01) 50%, rgba(89, 89, 89, 0.01) 100%),linear-gradient(278deg, rgba(243, 243, 243, 0.06) 0%, rgba(243, 243, 243, 0.06) 50%,rgba(63, 63, 63, 0.06) 50%, rgba(63, 63, 63, 0.06) 100%),linear-gradient(38deg, rgba(81, 81, 81, 0.09) 0%, rgba(81, 81, 81, 0.09) 50%,rgba(201, 201, 201, 0.09) 50%, rgba(201, 201, 201, 0.09) 100%),linear-gradient(33deg, rgba(168, 168, 168, 0.08) 0%, rgba(168, 168, 168, 0.08) 50%,rgba(129, 129, 129, 0.08) 50%, rgba(129, 129, 129, 0.08) 100%),linear-gradient(0deg, #1a1a1a, #333);
-    }
-    .sec4 {
-      background:linear-gradient(252deg, rgba(69, 69, 69, 0.03) 0%, rgba(69, 69, 69, 0.03) 50%,rgba(47, 47, 47, 0.03) 50%, rgba(47, 47, 47, 0.03) 100%),linear-gradient(335deg, rgba(66, 66, 66, 0.09) 0%, rgba(66, 66, 66, 0.09) 50%,rgba(188, 188, 188, 0.09) 50%, rgba(188, 188, 188, 0.09) 100%),linear-gradient(223deg, rgba(194, 194, 194, 0.08) 0%, rgba(194, 194, 194, 0.08) 50%,rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.08) 100%),linear-gradient(82deg, rgba(27, 27, 27, 0.01) 0%, rgba(27, 27, 27, 0.01) 50%,rgba(197, 197, 197, 0.01) 50%, rgba(197, 197, 197, 0.01) 100%),linear-gradient(281deg, rgba(3, 3, 3, 0.09) 0%, rgba(3, 3, 3, 0.09) 50%,rgba(198, 198, 198, 0.09) 50%, rgba(198, 198, 198, 0.09) 100%),linear-gradient(319deg, rgba(47, 47, 47, 0.01) 0%, rgba(47, 47, 47, 0.01) 50%,rgba(89, 89, 89, 0.01) 50%, rgba(89, 89, 89, 0.01) 100%),linear-gradient(278deg, rgba(243, 243, 243, 0.06) 0%, rgba(243, 243, 243, 0.06) 50%,rgba(63, 63, 63, 0.06) 50%, rgba(63, 63, 63, 0.06) 100%),linear-gradient(38deg, rgba(81, 81, 81, 0.09) 0%, rgba(81, 81, 81, 0.09) 50%,rgba(201, 201, 201, 0.09) 50%, rgba(201, 201, 201, 0.09) 100%),linear-gradient(33deg, rgba(168, 168, 168, 0.08) 0%, rgba(168, 168, 168, 0.08) 50%,rgba(129, 129, 129, 0.08) 50%, rgba(129, 129, 129, 0.08) 100%),linear-gradient(0deg, #1a1a1a, #333);
-     }
-     .sec5 {
-      background:linear-gradient(252deg, rgba(69, 69, 69, 0.03) 0%, rgba(69, 69, 69, 0.03) 50%,rgba(47, 47, 47, 0.03) 50%, rgba(47, 47, 47, 0.03) 100%),linear-gradient(335deg, rgba(66, 66, 66, 0.09) 0%, rgba(66, 66, 66, 0.09) 50%,rgba(188, 188, 188, 0.09) 50%, rgba(188, 188, 188, 0.09) 100%),linear-gradient(223deg, rgba(194, 194, 194, 0.08) 0%, rgba(194, 194, 194, 0.08) 50%,rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.08) 100%),linear-gradient(82deg, rgba(27, 27, 27, 0.01) 0%, rgba(27, 27, 27, 0.01) 50%,rgba(197, 197, 197, 0.01) 50%, rgba(197, 197, 197, 0.01) 100%),linear-gradient(281deg, rgba(3, 3, 3, 0.09) 0%, rgba(3, 3, 3, 0.09) 50%,rgba(198, 198, 198, 0.09) 50%, rgba(198, 198, 198, 0.09) 100%),linear-gradient(319deg, rgba(47, 47, 47, 0.01) 0%, rgba(47, 47, 47, 0.01) 50%,rgba(89, 89, 89, 0.01) 50%, rgba(89, 89, 89, 0.01) 100%),linear-gradient(278deg, rgba(243, 243, 243, 0.06) 0%, rgba(243, 243, 243, 0.06) 50%,rgba(63, 63, 63, 0.06) 50%, rgba(63, 63, 63, 0.06) 100%),linear-gradient(38deg, rgba(81, 81, 81, 0.09) 0%, rgba(81, 81, 81, 0.09) 50%,rgba(201, 201, 201, 0.09) 50%, rgba(201, 201, 201, 0.09) 100%),linear-gradient(33deg, rgba(168, 168, 168, 0.08) 0%, rgba(168, 168, 168, 0.08) 50%,rgba(129, 129, 129, 0.08) 50%, rgba(129, 129, 129, 0.08) 100%),linear-gradient(0deg, #1a1a1a, #333);
-     }
-     .sec6 {
-      background:linear-gradient(252deg, rgba(69, 69, 69, 0.03) 0%, rgba(69, 69, 69, 0.03) 50%,rgba(47, 47, 47, 0.03) 50%, rgba(47, 47, 47, 0.03) 100%),linear-gradient(335deg, rgba(66, 66, 66, 0.09) 0%, rgba(66, 66, 66, 0.09) 50%,rgba(188, 188, 188, 0.09) 50%, rgba(188, 188, 188, 0.09) 100%),linear-gradient(223deg, rgba(194, 194, 194, 0.08) 0%, rgba(194, 194, 194, 0.08) 50%,rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.08) 100%),linear-gradient(82deg, rgba(27, 27, 27, 0.01) 0%, rgba(27, 27, 27, 0.01) 50%,rgba(197, 197, 197, 0.01) 50%, rgba(197, 197, 197, 0.01) 100%),linear-gradient(281deg, rgba(3, 3, 3, 0.09) 0%, rgba(3, 3, 3, 0.09) 50%,rgba(198, 198, 198, 0.09) 50%, rgba(198, 198, 198, 0.09) 100%),linear-gradient(319deg, rgba(47, 47, 47, 0.01) 0%, rgba(47, 47, 47, 0.01) 50%,rgba(89, 89, 89, 0.01) 50%, rgba(89, 89, 89, 0.01) 100%),linear-gradient(278deg, rgba(243, 243, 243, 0.06) 0%, rgba(243, 243, 243, 0.06) 50%,rgba(63, 63, 63, 0.06) 50%, rgba(63, 63, 63, 0.06) 100%),linear-gradient(38deg, rgba(81, 81, 81, 0.09) 0%, rgba(81, 81, 81, 0.09) 50%,rgba(201, 201, 201, 0.09) 50%, rgba(201, 201, 201, 0.09) 100%),linear-gradient(33deg, rgba(168, 168, 168, 0.08) 0%, rgba(168, 168, 168, 0.08) 50%,rgba(129, 129, 129, 0.08) 50%, rgba(129, 129, 129, 0.08) 100%),linear-gradient(0deg, #1a1a1a, #333);
-     }
+    .sec3, .sec4, .sec5, .sec6 {
+      background: linear-gradient(to right, #7297c2, #79a8d8);
+  }
     .box {
      width:100%;
      background:#fcfcfc;
@@ -98,6 +91,7 @@
     }
     .question {
      margin-bottom:30px;
+     cursor: pointer;
     }
     ul{
      list-style:none;
@@ -274,6 +268,10 @@
 </style>
 </head>
 <body>
+  
+<!-- Barre de navigation -->
+
+  
 
   <section class="sec1">
     <div>
@@ -283,7 +281,7 @@
     <div>
       <h3>TP1 Cyberlab: Contrôle du Bras Robotique Ned2</h3>
       <p>Bienvenue dans le quiz de compréhension du TP1 sur Cyberlab. Êtes-vous prêt à vérifier votre compréhension et votre exécution du TP? C'est le moment de démontrer vos compétences.</p>
-      <button class="btn btn1 continue-btn">Continuer</button>
+      <button class="btn btn1 continue-btn" style="cursor: pointer;">Continuer</button>
     </div>
   </section>
   
@@ -295,7 +293,7 @@
     <div>
       <input type="text" class="input" placeholder="Entrez votre nom">
     </div>
-    <button class="btn btn1 start-quiz">Commencer le Quiz</button>
+    <button class="btn btn1 start-quiz" style="cursor: pointer;">Commencer le Quiz</button>
   </section>
 <section class="sec3" >
   <div class="box" >
@@ -305,18 +303,18 @@
       <div class="time" >00:01</div>
     </div>
     <h3 class="question" ></h3>
-    <ul class="quiz" >
+    <ul class="quiz" style="cursor: pointer;" >
     </ul>
-    <button class="submit">Continue</button>
+    <button class="submit" style="cursor: pointer;">Continue</button>
   </div>
 </section>
 
 <section class="sec4">
   <div class="des" >
-    <h3 class="mb-1 name" >Cyberlab</h3>
-    <p class="mb-1" style="color:#2cd31d" >Félicitations, vous avez fait un excellent travail ! 🎉 Il ne vous reste plus qu'à déposer votre compte rendu. <br> Vous avez débloqué un nouveau certificat.</p>
+    <h3 class="mb-1 name" style="color:#036383;font-size: 2.5rem;">Cyberlab</h3>
+    <p class="mb-1" style="color:#ffffff" >Félicitations, vous avez fait un excellent travail ! 🎉 Il ne vous reste plus qu'à déposer votre compte rendu. <br> Vous avez débloqué un nouveau certificat.</p>
   </div>
-  <button type="button" onclick="submitQuiz()" style="margin-bottom:5px;align-self: start; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #053f03, #409c15) 0 0 / 200% 100% no-repeat;transition: background-position 0.15s;">Déposer le compte rendu</button>
+  <button type="button" onclick="submitQuiz()" style="align-self: start; margin-bottom:15px; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #180872, #15939c) 0 0 / 200% 100% no-repeat;transition: background-position 0.15s;">DÉPOSER LE COMPTE RENDU</button>
   <button class="check-ans btn" style="align-self: start; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #180872, #15939c) 0 0 / 200% 100% no-repeat;transition: background-position 0.15s;" >Voir tes Réponses</button>
   
   <h3 style="color:#ffffff;margin-top:20px;"> Ton Certificat</h3>
