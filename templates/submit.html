@@ -37,7 +37,7 @@
         </div>
     </nav>
     <main>
-        <button id="launchQuizBtn" onclick="launchQuiz()" style="align-self: start; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #9333ea, #036383) 0 0 / 200% 100% no-repeat;transition: background-position 0.15s; margin-bottom:5px">Déposer votre compte rendu</button>
+        <button id="launchQuizBtn" onclick="launchQuiz()" style="align-self: start; text-decoration: none; justify-self: end; border-radius: 100px; padding: 0.5rem 1.5rem;border: 0;color: hsl(0 0% 100%);font-weight: 120;cursor: pointer;background: linear-gradient(to right, #036383, #06bdbd);transition: background-position 0.15s; margin-bottom:5px">Déposer votre compte rendu</button>
     
        
         <form id="submitPdfForm" action="/submit" method="post" enctype="multipart/form-data" style="display: none; color: black;">
@@ -50,11 +50,11 @@
         
         <div id="aiResponse" style="text-align: center;">
             <h2 style="color: black;"><span class="robot-emoji">&#129302;</span>Feedback</h2>
-            <p id="aiOutput" style="color: black;">{{ response }}</p>
+            <p id="aiOutput" style="color: black;">{{ feedback }}</p>
             <div style="margin-top: 30px;">
                 <h2 style="color: black;">Note</h2>
                 <div style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(to bottom, #e0eefa 0%, #ececec 100%); border: 2px solid #036383; color: red; font-size: 24px; font-weight: bold; display: flex; justify-content: center; align-items: center; margin: auto;">
-                    {{ response1 }}
+                    {{ note }}
                 </div>
                 
                 
